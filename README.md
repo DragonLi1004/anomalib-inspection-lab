@@ -1,3 +1,13 @@
+# Inspection Lab · 课程二次开发
+
+本地中文工业缺陷检测 GUI、PatchCore 特征压缩与可复现实验。
+
+**开始使用：[课程说明](README_课程.md) · [实验报告](course/实验报告.md)**
+
+本仓库基于 anomalib lib/v2.5.1，保留上游源码、历史和 Apache-2.0 许可证；课程扩展位于 `course/`。以下为上游 README。
+
+---
+
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/open-edge-platform/anomalib/main/docs/source/_static/images/logos/anomalib-wide-blue.png" width="600px" alt="Anomalib Logo - A deep learning library for anomaly detection">

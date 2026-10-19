@@ -180,3 +180,20 @@ mlruns
 # application data
 application/**/data/
 application/**/logs/
+
+# Local course runtime and experiment artifacts
+.bootstrap/
+.runtime/
+.cache/
+course/outputs/
+course/data/
+course/models/
+
+# Machine-specific deployment notes and local environment snapshot
+course/部署验证.md
+course/environment-freeze.txt
+
+# Share only aggregate, path-free course measurements
+!course/results/
+!course/results/pilot_metrics.json
+!course/results/pilot_metrics.csv
