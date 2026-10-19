@@ -195,5 +195,6 @@ course/environment-freeze.txt
 
 # Share only aggregate, path-free course measurements
 !course/results/
+course/results/*
 !course/results/pilot_metrics.json
 !course/results/pilot_metrics.csv

@@ -1,6 +1,7 @@
 """Export verified paired experiments without machine paths or dataset images."""
 import csv
 import importlib.metadata
+import hashlib
 import json
 from pathlib import Path
 
@@ -22,7 +23,15 @@ def main():
         pairs.append((baseline, compact))
     folder = ROOT / "course/results"
     folder.mkdir(parents=True, exist_ok=True)
+    source_paths = [ROOT / "course" / n for n in ("experiment.py", "compact_patchcore.py")]
+    raw_hash = hashlib.sha256(b"".join(p.read_bytes() for p in source_paths)).hexdigest()
+    lf_hash = hashlib.sha256(b"".join(p.read_text(encoding="utf-8").encode("utf-8") for p in source_paths)).hexdigest()
+    if any(r["course_code_sha256"] != raw_hash for pair in pairs for r in pair):
+        raise ValueError("Course source changed since these runs; preserve their source before exporting")
     metadata = {"protocol": "paired-coreset-v2", "seed": 42,
+                "source_files_in_hash_order": ["course/experiment.py", "course/compact_patchcore.py"],
+                "course_source_lf_sha256": lf_hash,
+                "hash_note": "Run hashes include original Windows line endings. The LF-normalized hash identifies the Git sources.",
                 "environment": {p: importlib.metadata.version(p) for p in ("torch", "torchvision", "lightning", "timm", "numpy")},
                 "pairs": [{"baseline": a, "pca96": b} for a, b in pairs]}
     (folder / "pilot_metrics.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")

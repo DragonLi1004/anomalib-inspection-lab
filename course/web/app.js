@@ -21,7 +21,7 @@ $('close-dialog').onclick=()=>$('image-dialog').close();
 function comparison() {
  const opt=state.runs.find(r=>r.id===$('compare-run').value);
  if(!opt){$('comparison').innerHTML='完成原始方法与 PCA 实验后，显示对比结果';return;}
- const keys=['dataset','seed','device','backbone','coreset_sampling_ratio','num_neighbors','val_split_ratio','split_sha256','protocol_version','coreset_sha256'];
+ const keys=['dataset','seed','device','backbone','coreset_sampling_ratio','num_neighbors','val_split_ratio','split_sha256','protocol_version','coreset_sha256','course_code_sha256'];
  const base=state.runs.find(r=>r.method==='baseline'&&opt.protocol_version==='paired-coreset-v2'&&opt.split_sha256&&keys.every(k=>r[k]===opt[k])&&JSON.stringify(r.image_size)===JSON.stringify(opt.image_size));
  if(!base){$('comparison').innerHTML='尚无经相同特征库校验的新版本基线。旧记录保留用于查看，请重新运行同配置 baseline 与 PCA。';return;}
  const a=base.metrics[0],b=opt.metrics[0];

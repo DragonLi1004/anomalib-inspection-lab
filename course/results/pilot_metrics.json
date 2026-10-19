@@ -1,6 +1,12 @@
 {
   "protocol": "paired-coreset-v2",
   "seed": 42,
+  "source_files_in_hash_order": [
+    "course/experiment.py",
+    "course/compact_patchcore.py"
+  ],
+  "course_source_lf_sha256": "1ad8a23f4ee9c9a91090f251f53965a999b1cb426eb8c5500cccfaf896b9a702",
+  "hash_note": "Run hashes include original Windows line endings. The LF-normalized hash identifies the Git sources.",
   "environment": {
     "torch": "2.13.0+cu126",
     "torchvision": "0.28.0+cu126",

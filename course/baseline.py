@@ -81,7 +81,8 @@ def main():
     bank = model.model.memory_bank
     report = {
         "purpose": "deployment smoke baseline; not a full MVTec AD result",
-        "upstream_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+        "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+        "code_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
         "seed": args.seed, "device": args.device, "backbone": "resnet18.tv_in1k",
         "image_size": [224, 224], "batch_size": 1, "coreset_sampling_ratio": 0.01,
         "num_neighbors": 9, "split_counts": {k: len(v) for k, v in splits.items()},
