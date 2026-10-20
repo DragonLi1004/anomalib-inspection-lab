@@ -57,6 +57,20 @@ def images(path):
     return [p.relative_to(ROOT).as_posix() for p in sorted((path / "images").rglob("*")) if p.suffix.lower() in (".jpg", ".png", ".jpeg")]
 
 
+def package_path(model_id="bundle"):
+    report = read_json(ROOT / "course/results/lossless_metrics.json", {})
+    if not report.get("complete"):
+        raise ValueError("无损模型包尚未生成")
+    bundle = (ROOT / report["package"]).resolve()
+    if not bundle.is_relative_to(OUTPUT.resolve()) or bundle.suffix != ".alpack":
+        raise ValueError("Invalid package location")
+    if model_id == "bundle":
+        return bundle
+    if model_id not in {r["source_run"] for r in report["runs"]}:
+        raise ValueError("Unknown packaged model")
+    return bundle.parent / "single" / (model_id + ".alpack")
+
+
 def job_state():
     global JOB
     with LOCK:
@@ -172,6 +186,14 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send(summarize(collect_records(device)))
                 except ValueError as error:
                     return self.send({"error": str(error)}, status=409)
+            if parsed.path == "/api/storage":
+                report = read_json(ROOT / "course/results/lossless_metrics.json", {"complete": False})
+                if report.get("complete"):
+                    report["package_available"] = package_path().is_file()
+                    report["package_local_path"] = str(package_path())
+                return self.send(report)
+            if parsed.path == "/api/package":
+                return self.send(package_path(params.get("run", ["bundle"])[0]).read_bytes(), "application/octet-stream")
             if parsed.path == "/api/run":
                 path = local_run(params.get("id", [""])[0])
                 return self.send({"metrics": read_json(path / "metrics.json", {}), "images": images(path), "splits": read_json(path / "split_manifest.json", {})})

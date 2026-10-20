@@ -203,3 +203,8 @@ course/results/*
 !course/results/multiseed_metrics.csv
 !course/results/multiseed_summary.csv
 !course/results/multiseed_comparison.png
+
+!course/results/lossless_metrics.json
+!course/results/lossless_metrics.csv
+!course/results/lossless_comparison.png
+!course/results/search_exploration.json

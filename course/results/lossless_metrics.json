@@ -1,0 +1,419 @@
+{
+  "format": "lossless-course-audit-v1",
+  "package": "course/outputs/lossless-20261020-153336/baseline-9-models.alpack",
+  "bundle": {
+    "models": 9,
+    "original_bytes": 124814619,
+    "package_bytes": 30412646,
+    "reduction_percent": 75.6337468770385,
+    "unique_payload_bytes": 35460623,
+    "package_sha256": "b1c053174106e07cdcb7652c7a9e363a25674be2d1bd28fecdd2292af8cdc2e9",
+    "pack_seconds": 2.0576499000308104
+  },
+  "runs": [
+    {
+      "dataset": "bottle",
+      "seed": 42,
+      "source_run": "bottle-baseline-20261019-092413",
+      "checkpoint_sha256": "90a38c343e70b105c8c262d2e16d38a9bacbd1f4795510463fb85a2de66a6461",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 1.0,
+        "pixel_AUROC": 0.9792450070381165,
+        "pixel_F1Score": 0.6930747032165527
+      },
+      "restored_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 1.0,
+        "pixel_AUROC": 0.9792450070381165,
+        "pixel_F1Score": 0.6930747032165527
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13767939,
+        "package_bytes": 12446811,
+        "reduction_percent": 9.595684582855867,
+        "unique_payload_bytes": 13766135,
+        "package_sha256": "189f7f065d7e2d6e7dec0338224ecb69890ff343a4aa98c0790779411b88f528"
+      },
+      "restore_seconds": 0.11893380002584308,
+      "split_sha256": "cd96b2bc635535871071200ad06b8a6ae4d5e48a4aeb66185738bc25ef27e7e9",
+      "test_images": 42
+    },
+    {
+      "dataset": "cable",
+      "seed": 42,
+      "source_run": "cable-baseline-20261019-092534",
+      "checkpoint_sha256": "7ff549c819e6de4449d1c2d6c6d4b8aa5a9ad7f134100da2852fb07de9813dc3",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 0.9767616391181946,
+        "image_F1Score": 0.9213483333587646,
+        "pixel_AUROC": 0.9822849035263062,
+        "pixel_F1Score": 0.6404553055763245
+      },
+      "restored_metrics": {
+        "image_AUROC": 0.9767616391181946,
+        "image_F1Score": 0.9213483333587646,
+        "pixel_AUROC": 0.9822849035263062,
+        "pixel_F1Score": 0.6404553055763245
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13949187,
+        "package_bytes": 12807884,
+        "reduction_percent": 8.181860347846792,
+        "unique_payload_bytes": 13947383,
+        "package_sha256": "f785991763b13c6d165bd9db7c30a155bb03f6fa8929687f134043986b4179a5"
+      },
+      "restore_seconds": 0.11535980005282909,
+      "split_sha256": "649a6c03c8c2932874ed225f1372c677bfa71fd8f214bdf7a40a9f85396ae5fa",
+      "test_images": 75
+    },
+    {
+      "dataset": "capsule",
+      "seed": 42,
+      "source_run": "capsule-baseline-20261019-092724",
+      "checkpoint_sha256": "25d797c5e516b2a2c4cffe0179abdae27ba5f2ef707e8fcf27a717f1cb8a508e",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 0.9696969389915466,
+        "image_F1Score": 0.9821428656578064,
+        "pixel_AUROC": 0.985459566116333,
+        "pixel_F1Score": 0.5044711232185364
+      },
+      "restored_metrics": {
+        "image_AUROC": 0.9696969389915466,
+        "image_F1Score": 0.9821428656578064,
+        "pixel_AUROC": 0.985459566116333,
+        "pixel_F1Score": 0.5044711232185364
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13887747,
+        "package_bytes": 12695276,
+        "reduction_percent": 8.586497147449478,
+        "unique_payload_bytes": 13885943,
+        "package_sha256": "aa0a57de268dd3926ca66edd83877942c376ab1f6a1246705fd4a4b850a7f0c1"
+      },
+      "restore_seconds": 0.11345420003635809,
+      "split_sha256": "3f0eb078ca54c18a6a1302e48a54c48a147ffe39c76a2760dd090f556871a036",
+      "test_images": 67
+    },
+    {
+      "dataset": "bottle",
+      "seed": 43,
+      "source_run": "bottle-baseline-20261019-204429",
+      "checkpoint_sha256": "95393c76c9d124dbd893bce30d74563025dabc3917fe7be8feea2ca3c58494fc",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 1.0,
+        "pixel_AUROC": 0.9836262464523315,
+        "pixel_F1Score": 0.6842375993728638
+      },
+      "restored_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 1.0,
+        "pixel_AUROC": 0.9836262464523315,
+        "pixel_F1Score": 0.6842375993728638
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13767939,
+        "package_bytes": 12447173,
+        "reduction_percent": 9.593055285907347,
+        "unique_payload_bytes": 13766135,
+        "package_sha256": "ba5b65064882d1368518769969291d58f031302a7bcf69f71de8d98d98f21c42"
+      },
+      "restore_seconds": 0.11323479999555275,
+      "split_sha256": "8e2b0ab8e3251ea6927de60f073a7054e6f9594ad89a8b5d634ae222dc406973",
+      "test_images": 42
+    },
+    {
+      "dataset": "cable",
+      "seed": 43,
+      "source_run": "cable-baseline-20261019-204631",
+      "checkpoint_sha256": "4963d276a126de61f0596d00f83ec4939030af572eef3f1259979edd89acd6b5",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 0.9812593460083008,
+        "image_F1Score": 0.9347826242446899,
+        "pixel_AUROC": 0.9870526790618896,
+        "pixel_F1Score": 0.695476770401001
+      },
+      "restored_metrics": {
+        "image_AUROC": 0.9812593460083008,
+        "image_F1Score": 0.9347826242446899,
+        "pixel_AUROC": 0.9870526790618896,
+        "pixel_F1Score": 0.695476770401001
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13949187,
+        "package_bytes": 12807822,
+        "reduction_percent": 8.182304818194785,
+        "unique_payload_bytes": 13947383,
+        "package_sha256": "24ac1ef3cae8d30739a4b8dd741a38d4c2ea3fb4c712b676218ec72fd69942ea"
+      },
+      "restore_seconds": 0.10604289994807914,
+      "split_sha256": "95cde542b0f5cfcf15d0d8827afffcc78e6614daed671cb42db32f8720d723da",
+      "test_images": 75
+    },
+    {
+      "dataset": "capsule",
+      "seed": 43,
+      "source_run": "capsule-baseline-20261019-204924",
+      "checkpoint_sha256": "243d15996196e67b3b01097450434f89a569de88ce27bf4c451f1a7676d60191",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 0.9712120294570923,
+        "image_F1Score": 0.954954981803894,
+        "pixel_AUROC": 0.9794093370437622,
+        "pixel_F1Score": 0.5086429119110107
+      },
+      "restored_metrics": {
+        "image_AUROC": 0.9712120294570923,
+        "image_F1Score": 0.954954981803894,
+        "pixel_AUROC": 0.9794093370437622,
+        "pixel_F1Score": 0.5086429119110107
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13887747,
+        "package_bytes": 12695676,
+        "reduction_percent": 8.58361691064793,
+        "unique_payload_bytes": 13885943,
+        "package_sha256": "7b4d8216ee375d1d56e455f4b5ec83983fa18502f13c1cea6d98777d275197c5"
+      },
+      "restore_seconds": 0.12222159997327253,
+      "split_sha256": "6525321a437174245b44b291933099fc795612ab6c1b06c85321a4ee538010df",
+      "test_images": 67
+    },
+    {
+      "dataset": "bottle",
+      "seed": 44,
+      "source_run": "bottle-baseline-20261019-205201",
+      "checkpoint_sha256": "d1335f324cf87d036fdf9d2a9dafee5bd41f2cc8b7175a6d2db3bc21c6d1a5ff",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 0.9841269850730896,
+        "pixel_AUROC": 0.9809044599533081,
+        "pixel_F1Score": 0.6881973147392273
+      },
+      "restored_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 0.9841269850730896,
+        "pixel_AUROC": 0.9809044599533081,
+        "pixel_F1Score": 0.6881973147392273
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13767939,
+        "package_bytes": 12447632,
+        "reduction_percent": 9.589721453588663,
+        "unique_payload_bytes": 13766135,
+        "package_sha256": "0e5e546cb7ebe2d6f9c24acdfb19408dd39b29743bbfe8aa2db178bb9f872c58"
+      },
+      "restore_seconds": 0.10376349999569356,
+      "split_sha256": "01a20ed64ac10fc4a244e8bcc4f9a4161b9698703d0db3dc34704ea21b0f1445",
+      "test_images": 42
+    },
+    {
+      "dataset": "cable",
+      "seed": 44,
+      "source_run": "cable-baseline-20261019-205349",
+      "checkpoint_sha256": "9b37461d467496bcdc36202da1a826c4ffab7d01549236ef0b95992e666718d7",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 0.9940029978752136,
+        "image_F1Score": 0.9583333134651184,
+        "pixel_AUROC": 0.9870657324790955,
+        "pixel_F1Score": 0.6984590888023376
+      },
+      "restored_metrics": {
+        "image_AUROC": 0.9940029978752136,
+        "image_F1Score": 0.9583333134651184,
+        "pixel_AUROC": 0.9870657324790955,
+        "pixel_F1Score": 0.6984590888023376
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13949187,
+        "package_bytes": 12808557,
+        "reduction_percent": 8.177035693908186,
+        "unique_payload_bytes": 13947383,
+        "package_sha256": "df85bc48cbdecb39dedfce1562fd87de0e3817df4c28adb3611df6af69eecded"
+      },
+      "restore_seconds": 0.11803420004434884,
+      "split_sha256": "bc4e82eb27fba53e687f3d58c9a70dd2e580e7f6f739e29b0293a3243da41d67",
+      "test_images": 75
+    },
+    {
+      "dataset": "capsule",
+      "seed": 44,
+      "source_run": "capsule-baseline-20261019-205636",
+      "checkpoint_sha256": "e86eec60ef04b3c1fc59a3261e0e51a2ea0ff4ebcac1f853d24a9ce4442d79da",
+      "byte_identical": true,
+      "state_dict_identical": true,
+      "metrics_identical": true,
+      "original_metrics": {
+        "image_AUROC": 0.9151514768600464,
+        "image_F1Score": 0.9369369149208069,
+        "pixel_AUROC": 0.9852251410484314,
+        "pixel_F1Score": 0.4617849290370941
+      },
+      "restored_metrics": {
+        "image_AUROC": 0.9151514768600464,
+        "image_F1Score": 0.9369369149208069,
+        "pixel_AUROC": 0.9852251410484314,
+        "pixel_F1Score": 0.4617849290370941
+      },
+      "single_package": {
+        "models": 1,
+        "original_bytes": 13887747,
+        "package_bytes": 12695003,
+        "reduction_percent": 8.58846290906653,
+        "unique_payload_bytes": 13885943,
+        "package_sha256": "1d29bcb30561e70923db2c3607d40eb69125c1caca7b487522b88a4bc322a511"
+      },
+      "restore_seconds": 0.13380519999191165,
+      "split_sha256": "c09ed1312739aaf74a7b486def196420fcd20f5eb0a92013b1232868519a4af6",
+      "test_images": 67
+    }
+  ],
+  "method": "Deduplicate original checkpoint ZIP payloads by SHA-256, then ZIP Deflate level 6; restore exact original bytes before ordinary inference.",
+  "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "torch_version": "2.13.0+cu126",
+  "complete": true,
+  "summary": [
+    {
+      "dataset": "bottle",
+      "n": 3,
+      "original_bytes_mean": 13767939,
+      "single_package_bytes_mean": 12447205.333333334,
+      "single_reduction_percent_mean": 9.592820440783958,
+      "metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 0.9947089950243632,
+        "pixel_AUROC": 0.9812585711479187,
+        "pixel_F1Score": 0.6885032057762146
+      }
+    },
+    {
+      "dataset": "cable",
+      "n": 3,
+      "original_bytes_mean": 13949187,
+      "single_package_bytes_mean": 12808087.666666666,
+      "single_reduction_percent_mean": 8.18040028664992,
+      "metrics": {
+        "image_AUROC": 0.984007994333903,
+        "image_F1Score": 0.9381547570228577,
+        "pixel_AUROC": 0.985467771689097,
+        "pixel_F1Score": 0.6781303882598877
+      }
+    },
+    {
+      "dataset": "capsule",
+      "n": 3,
+      "original_bytes_mean": 13887747,
+      "single_package_bytes_mean": 12695318.333333334,
+      "single_reduction_percent_mean": 8.58619232238798,
+      "metrics": {
+        "image_AUROC": 0.9520201484362284,
+        "image_F1Score": 0.9580115874608358,
+        "pixel_AUROC": 0.9833646814028422,
+        "pixel_F1Score": 0.49163298805554706
+      }
+    }
+  ],
+  "test_image_evaluations": 552,
+  "source_lf_sha256": {
+    "lossless_package.py": "5dd8549145d421a130062f71ca70eac0294cf0b66db668d0868a6541f2406bed",
+    "audit_lossless.py": "d976eed08c523b90e21d32ce24b0abb8e609ad6be86e744e65deb215d45e800a"
+  },
+  "acceptance": "Accepted for model-package storage: all 9 restored checkpoint files byte-identical, all state tensors identical, all four test detection metrics identical. Original upstream inference path retained. Packing/restoration are offline deployment operations.",
+  "rejected_search_summary": [
+    {
+      "dataset": "bottle",
+      "seed": 42,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 7.635667476621755,
+      "latency_change_percent": 4.113541728467185
+    },
+    {
+      "dataset": "cable",
+      "seed": 42,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 0.6780845858091578,
+      "latency_change_percent": 4.806705795649191
+    },
+    {
+      "dataset": "capsule",
+      "seed": 42,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 0.0,
+      "latency_change_percent": 6.83536623189458
+    },
+    {
+      "dataset": "bottle",
+      "seed": 43,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 7.635667476621755,
+      "latency_change_percent": 2.1833657118793592
+    },
+    {
+      "dataset": "cable",
+      "seed": 43,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 0.6780845858091578,
+      "latency_change_percent": 4.473347469067845
+    },
+    {
+      "dataset": "capsule",
+      "seed": 43,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 0.0,
+      "latency_change_percent": -0.5210317333153802
+    },
+    {
+      "dataset": "bottle",
+      "seed": 44,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 7.635667476621755,
+      "latency_change_percent": 11.742897300261479
+    },
+    {
+      "dataset": "cable",
+      "seed": 44,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 0.6780845858091578,
+      "latency_change_percent": 5.811608143941682
+    },
+    {
+      "dataset": "capsule",
+      "seed": 44,
+      "raw_outputs_identical": true,
+      "temporary_memory_reduction_percent": 0.0,
+      "latency_change_percent": 6.059678154023085
+    }
+  ]
+}

@@ -1,0 +1,1492 @@
+{
+  "phase": "locked_test",
+  "selection": {
+    "phase": "validation_only",
+    "candidates": {
+      "upstream": null,
+      "lifetime": null,
+      "chunk196": 196,
+      "chunk392": 392,
+      "chunk512": 512,
+      "chunk784": 784
+    },
+    "runs": [
+      {
+        "dataset": "bottle",
+        "source_run": "bottle-baseline-20261019-092413",
+        "parity": {
+          "lifetime": {
+            "images": 41,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk196": {
+            "images": 41,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk392": {
+            "images": 41,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk512": {
+            "images": 41,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk784": {
+            "images": 41,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          }
+        },
+        "benchmark": {
+          "upstream": {
+            "block_median_ms": [
+              4.723499994724989,
+              5.743899993831292,
+              5.115349980769679,
+              4.700399993453175,
+              4.449350002687424,
+              4.704350023530424,
+              4.817749984795228
+            ],
+            "peak_allocated_bytes": [
+              30978048,
+              30978048,
+              30978048
+            ],
+            "peak_extra_bytes": [
+              6953472,
+              6953472,
+              6953472
+            ],
+            "latency_median_ms": 4.723499994724989,
+            "peak_allocated_bytes_max": 30978048,
+            "peak_extra_bytes_max": 6953472
+          },
+          "lifetime": {
+            "block_median_ms": [
+              4.686800006311387,
+              6.713050010148436,
+              4.942250001477078,
+              5.330450017936528,
+              4.5243500208016485,
+              4.404350009281188,
+              4.889000003458932
+            ],
+            "peak_allocated_bytes": [
+              30447104,
+              30447104,
+              30447104
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 4.889000003458932,
+            "peak_allocated_bytes_max": 30447104,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk196": {
+            "block_median_ms": [
+              5.194850004045293,
+              6.1150999972596765,
+              5.286850035190582,
+              6.740500044543296,
+              5.080550006823614,
+              4.739650001283735,
+              5.254200019408017
+            ],
+            "peak_allocated_bytes": [
+              30447104,
+              30447104,
+              30447104
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.254200019408017,
+            "peak_allocated_bytes_max": 30447104,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk392": {
+            "block_median_ms": [
+              5.98795001860708,
+              6.43095001578331,
+              5.846300016855821,
+              5.314450041623786,
+              4.747900005895644,
+              4.8420999955851585,
+              5.252150003798306
+            ],
+            "peak_allocated_bytes": [
+              30447104,
+              30447104,
+              30447104
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.314450041623786,
+            "peak_allocated_bytes_max": 30447104,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk512": {
+            "block_median_ms": [
+              5.151250021299347,
+              5.889799998840317,
+              5.550450005102903,
+              6.228899990674108,
+              5.189499992411584,
+              4.729950014734641,
+              5.404649971751496
+            ],
+            "peak_allocated_bytes": [
+              30447104,
+              30447104,
+              30447104
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.404649971751496,
+            "peak_allocated_bytes_max": 30447104,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk784": {
+            "block_median_ms": [
+              5.105300020659342,
+              5.638050002744421,
+              5.354099994292483,
+              5.705299990950152,
+              4.702200036263093,
+              4.71600002492778,
+              5.5065000196918845
+            ],
+            "peak_allocated_bytes": [
+              30447104,
+              30447104,
+              30447104
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.354099994292483,
+            "peak_allocated_bytes_max": 30447104,
+            "peak_extra_bytes_max": 6422528
+          }
+        }
+      },
+      {
+        "dataset": "cable",
+        "source_run": "cable-baseline-20261019-092534",
+        "parity": {
+          "lifetime": {
+            "images": 75,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk196": {
+            "images": 75,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk392": {
+            "images": 75,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk512": {
+            "images": 75,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk784": {
+            "images": 75,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          }
+        },
+        "benchmark": {
+          "upstream": {
+            "block_median_ms": [
+              4.559549997793511,
+              4.8592499806545675,
+              4.599749983754009,
+              5.248400004347786,
+              4.772900021634996,
+              5.103499977849424,
+              4.579050000756979
+            ],
+            "peak_allocated_bytes": [
+              31822848,
+              31822848,
+              31822848
+            ],
+            "peak_extra_bytes": [
+              7617024,
+              7617024,
+              7617024
+            ],
+            "latency_median_ms": 4.772900021634996,
+            "peak_allocated_bytes_max": 31822848,
+            "peak_extra_bytes_max": 7617024
+          },
+          "lifetime": {
+            "block_median_ms": [
+              5.313950008712709,
+              5.142349982634187,
+              4.439250013092533,
+              5.352300009690225,
+              4.466599988518283,
+              4.739249969134107,
+              4.918950027786195
+            ],
+            "peak_allocated_bytes": [
+              31220736,
+              31220736,
+              31220736
+            ],
+            "peak_extra_bytes": [
+              7014912,
+              7014912,
+              7014912
+            ],
+            "latency_median_ms": 4.918950027786195,
+            "peak_allocated_bytes_max": 31220736,
+            "peak_extra_bytes_max": 7014912
+          },
+          "chunk196": {
+            "block_median_ms": [
+              5.452150013297796,
+              5.05959999281913,
+              4.933999996865168,
+              4.781449999427423,
+              5.947249999735504,
+              4.911400028504431,
+              5.089750047773123
+            ],
+            "peak_allocated_bytes": [
+              30628352,
+              30628352,
+              30628352
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.05959999281913,
+            "peak_allocated_bytes_max": 30628352,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk392": {
+            "block_median_ms": [
+              5.343500000890344,
+              5.007500003557652,
+              4.882500012172386,
+              4.726199986180291,
+              6.005950010148808,
+              5.014850001316518,
+              5.039799987571314
+            ],
+            "peak_allocated_bytes": [
+              30628352,
+              30628352,
+              30628352
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.014850001316518,
+            "peak_allocated_bytes_max": 30628352,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk512": {
+            "block_median_ms": [
+              5.020300013711676,
+              5.025699996622279,
+              5.510750022949651,
+              5.196099984459579,
+              5.134949984494597,
+              4.807949997484684,
+              5.196650017751381
+            ],
+            "peak_allocated_bytes": [
+              30628352,
+              30628352,
+              30628352
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.134949984494597,
+            "peak_allocated_bytes_max": 30628352,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk784": {
+            "block_median_ms": [
+              4.938099998980761,
+              4.854300001170486,
+              4.8782000376377255,
+              4.7209999756887555,
+              5.008049949537963,
+              4.834950028453022,
+              4.658599995309487
+            ],
+            "peak_allocated_bytes": [
+              31230976,
+              31230976,
+              31230976
+            ],
+            "peak_extra_bytes": [
+              7025152,
+              7025152,
+              7025152
+            ],
+            "latency_median_ms": 4.854300001170486,
+            "peak_allocated_bytes_max": 31230976,
+            "peak_extra_bytes_max": 7025152
+          }
+        }
+      },
+      {
+        "dataset": "capsule",
+        "source_run": "capsule-baseline-20261019-092724",
+        "parity": {
+          "lifetime": {
+            "images": 65,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk196": {
+            "images": 65,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk392": {
+            "images": 65,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk512": {
+            "images": 65,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          },
+          "chunk784": {
+            "images": 65,
+            "unequal_scores": 0,
+            "unequal_maps": 0,
+            "max_score_error": 0.0,
+            "max_map_error": 0.0
+          }
+        },
+        "benchmark": {
+          "upstream": {
+            "block_median_ms": [
+              4.698249977082014,
+              5.243199964752421,
+              5.1998000126332045,
+              5.135599989444017,
+              4.725450009573251,
+              4.758499999297783,
+              4.80780002544634
+            ],
+            "peak_allocated_bytes": [
+              31697408,
+              31697408,
+              31697408
+            ],
+            "peak_extra_bytes": [
+              7553024,
+              7553024,
+              7553024
+            ],
+            "latency_median_ms": 4.80780002544634,
+            "peak_allocated_bytes_max": 31697408,
+            "peak_extra_bytes_max": 7553024
+          },
+          "lifetime": {
+            "block_median_ms": [
+              5.01680001616478,
+              4.819850000785664,
+              4.9877499986905605,
+              4.940250015351921,
+              5.236049997620285,
+              4.9189999990630895,
+              4.569549986626953
+            ],
+            "peak_allocated_bytes": [
+              31095296,
+              31095296,
+              31095296
+            ],
+            "peak_extra_bytes": [
+              6950912,
+              6950912,
+              6950912
+            ],
+            "latency_median_ms": 4.940250015351921,
+            "peak_allocated_bytes_max": 31095296,
+            "peak_extra_bytes_max": 6950912
+          },
+          "chunk196": {
+            "block_median_ms": [
+              5.505500012077391,
+              5.15224999981001,
+              4.66549998964183,
+              4.915700003039092,
+              4.992850008420646,
+              5.108299985295162,
+              5.011599976569414
+            ],
+            "peak_allocated_bytes": [
+              30566912,
+              30566912,
+              30566912
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.011599976569414,
+            "peak_allocated_bytes_max": 30566912,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk392": {
+            "block_median_ms": [
+              4.948099987814203,
+              5.372849991545081,
+              6.197000009706244,
+              5.039400013629347,
+              4.751549975480884,
+              5.16790000256151,
+              5.315049987984821
+            ],
+            "peak_allocated_bytes": [
+              30566912,
+              30566912,
+              30566912
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.16790000256151,
+            "peak_allocated_bytes_max": 30566912,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk512": {
+            "block_median_ms": [
+              5.202600004849955,
+              5.068749975180253,
+              5.073550011729822,
+              4.980500001693144,
+              5.035299982409924,
+              4.770500003360212,
+              4.679550009313971
+            ],
+            "peak_allocated_bytes": [
+              30566912,
+              30566912,
+              30566912
+            ],
+            "peak_extra_bytes": [
+              6422528,
+              6422528,
+              6422528
+            ],
+            "latency_median_ms": 5.035299982409924,
+            "peak_allocated_bytes_max": 30566912,
+            "peak_extra_bytes_max": 6422528
+          },
+          "chunk784": {
+            "block_median_ms": [
+              4.80919997789897,
+              5.056349997175857,
+              5.0717499980237335,
+              4.794050008058548,
+              5.063949996838346,
+              4.922899970551953,
+              5.175049998797476
+            ],
+            "peak_allocated_bytes": [
+              31105536,
+              31105536,
+              31105536
+            ],
+            "peak_extra_bytes": [
+              6961152,
+              6961152,
+              6961152
+            ],
+            "latency_median_ms": 5.056349997175857,
+            "peak_allocated_bytes_max": 31105536,
+            "peak_extra_bytes_max": 6961152
+          }
+        }
+      }
+    ],
+    "source_sha256": "0ed288ddcce90a11d2b06442c1b889bd39b896f5fa547a3ef4d7bd365a00df1b",
+    "selected": "chunk196",
+    "eligible": [
+      "lifetime",
+      "chunk196",
+      "chunk392",
+      "chunk512",
+      "chunk784"
+    ],
+    "selection_rule": "Exact raw output equality and lower peak extra GPU allocation in every validation category; then minimum mean workspace ratio, using latency only to break ties",
+    "frozen_at": "2026-10-20T15:26:10"
+  },
+  "runs": [
+    {
+      "dataset": "bottle",
+      "seed": 42,
+      "source_run": "bottle-baseline-20261019-092413",
+      "split_sha256": "cd96b2bc635535871071200ad06b8a6ae4d5e48a4aeb66185738bc25ef27e7e9",
+      "coreset_sha256": "e722d17d4a084a733c71fa0ec2308ffd3432f7b957bbe3cd4842949c78591973",
+      "parity": {
+        "images": 42,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            5.027399980463088,
+            4.3932000116910785,
+            4.670499969506636,
+            4.3365499877836555,
+            5.012249981518835,
+            5.100749986013398,
+            4.431549983564764,
+            4.764749988680705,
+            5.309299973305315,
+            5.053350003436208,
+            4.365349974250421,
+            4.611949960235506,
+            4.7736499982420355,
+            4.927749978378415,
+            4.668050009058788
+          ],
+          "peak_allocated_bytes": [
+            30978048,
+            30978048,
+            30978048
+          ],
+          "peak_extra_bytes": [
+            6953472,
+            6953472,
+            6953472
+          ],
+          "latency_median_ms": 4.764749988680705,
+          "peak_allocated_bytes_max": 30978048,
+          "peak_extra_bytes_max": 6953472
+        },
+        "chunk196": {
+          "block_median_ms": [
+            4.804449970833957,
+            4.862800007686019,
+            5.296299990732223,
+            4.845699993893504,
+            5.010149994632229,
+            4.738800023915246,
+            4.99299998045899,
+            4.880899999989197,
+            5.2223000093363225,
+            4.960749967722222,
+            5.101999966427684,
+            5.313549976563081,
+            5.232349969446659,
+            4.73584997234866,
+            4.728650004835799
+          ],
+          "peak_allocated_bytes": [
+            30447104,
+            30447104,
+            30447104
+          ],
+          "peak_extra_bytes": [
+            6422528,
+            6422528,
+            6422528
+          ],
+          "latency_median_ms": 4.960749967722222,
+          "peak_allocated_bytes_max": 30447104,
+          "peak_extra_bytes_max": 6422528
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 1.0,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9792450070381165,
+          "pixel_F1Score": 0.6930747032165527
+        },
+        "chunk196": {
+          "image_AUROC": 1.0,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9792450070381165,
+          "pixel_F1Score": 0.6930747032165527
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 1.0,
+        "pixel_AUROC": 0.9792450070381165,
+        "pixel_F1Score": 0.6930747032165527
+      }
+    },
+    {
+      "dataset": "cable",
+      "seed": 42,
+      "source_run": "cable-baseline-20261019-092534",
+      "split_sha256": "649a6c03c8c2932874ed225f1372c677bfa71fd8f214bdf7a40a9f85396ae5fa",
+      "coreset_sha256": "77f52d612dcaff7ab03c29c0209e3b1e4552252bd9adbe27a683acc3cf781287",
+      "parity": {
+        "images": 75,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            4.736250004498288,
+            4.729400010546669,
+            4.462200042326003,
+            5.164050002349541,
+            4.516749992035329,
+            4.954750009346753,
+            5.397100030677393,
+            5.042500008130446,
+            4.746500024339184,
+            4.825549985980615,
+            4.8704999790061265,
+            4.893600009381771,
+            4.777899972395971,
+            5.576299998210743,
+            4.620549996616319
+          ],
+          "peak_allocated_bytes": [
+            31529984,
+            31529984,
+            31529984
+          ],
+          "peak_extra_bytes": [
+            7324160,
+            7324160,
+            7324160
+          ],
+          "latency_median_ms": 4.825549985980615,
+          "peak_allocated_bytes_max": 31529984,
+          "peak_extra_bytes_max": 7324160
+        },
+        "chunk196": {
+          "block_median_ms": [
+            5.039099982241169,
+            4.753199988044798,
+            5.057499976828694,
+            4.920950013911352,
+            5.0723500025924295,
+            4.7067999839782715,
+            5.178500025067478,
+            4.902749991742894,
+            4.9992999993264675,
+            5.090400023618713,
+            4.882500012172386,
+            5.101850023493171,
+            5.350699997507036,
+            5.201050022151321,
+            5.567399988649413
+          ],
+          "peak_allocated_bytes": [
+            31480320,
+            31480320,
+            31480320
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 5.057499976828694,
+          "peak_allocated_bytes_max": 31480320,
+          "peak_extra_bytes_max": 7274496
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 0.9767616391181946,
+          "image_F1Score": 0.9213483333587646,
+          "pixel_AUROC": 0.9822849035263062,
+          "pixel_F1Score": 0.6404553055763245
+        },
+        "chunk196": {
+          "image_AUROC": 0.9767616391181946,
+          "image_F1Score": 0.9213483333587646,
+          "pixel_AUROC": 0.9822849035263062,
+          "pixel_F1Score": 0.6404553055763245
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 0.9767616391181946,
+        "image_F1Score": 0.9213483333587646,
+        "pixel_AUROC": 0.9822849035263062,
+        "pixel_F1Score": 0.6404553055763245
+      }
+    },
+    {
+      "dataset": "capsule",
+      "seed": 42,
+      "source_run": "capsule-baseline-20261019-092724",
+      "split_sha256": "3f0eb078ca54c18a6a1302e48a54c48a147ffe39c76a2760dd090f556871a036",
+      "coreset_sha256": "a32e4a3acb814c7715f9d82721cb9ce88d5b8fe330b08195fa5bc048643d731c",
+      "parity": {
+        "images": 67,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            4.976800002623349,
+            4.648350004572421,
+            4.750349995447323,
+            4.668850015150383,
+            4.97295000241138,
+            5.393849976826459,
+            4.836949985474348,
+            5.330249958205968,
+            5.616400012513623,
+            4.611199983628467,
+            4.729249980300665,
+            4.632600030163303,
+            4.616099991835654,
+            5.126700008986518,
+            4.767849983181804
+          ],
+          "peak_allocated_bytes": [
+            31418880,
+            31418880,
+            31418880
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 4.767849983181804,
+          "peak_allocated_bytes_max": 31418880,
+          "peak_extra_bytes_max": 7274496
+        },
+        "chunk196": {
+          "block_median_ms": [
+            4.804600001079962,
+            4.985049978131428,
+            5.34184998832643,
+            5.146049981703982,
+            5.97304999246262,
+            5.6952999730128795,
+            4.723349993582815,
+            5.297600029734895,
+            5.412950005847961,
+            5.690099991625175,
+            5.093749990919605,
+            4.940550017636269,
+            4.949599999235943,
+            4.890400014119223,
+            4.9659000360406935
+          ],
+          "peak_allocated_bytes": [
+            31418880,
+            31418880,
+            31418880
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 5.093749990919605,
+          "peak_allocated_bytes_max": 31418880,
+          "peak_extra_bytes_max": 7274496
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 0.9696969389915466,
+          "image_F1Score": 0.9821428656578064,
+          "pixel_AUROC": 0.985459566116333,
+          "pixel_F1Score": 0.5044711232185364
+        },
+        "chunk196": {
+          "image_AUROC": 0.9696969389915466,
+          "image_F1Score": 0.9821428656578064,
+          "pixel_AUROC": 0.985459566116333,
+          "pixel_F1Score": 0.5044711232185364
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 0.9696969389915466,
+        "image_F1Score": 0.9821428656578064,
+        "pixel_AUROC": 0.985459566116333,
+        "pixel_F1Score": 0.5044711232185364
+      }
+    },
+    {
+      "dataset": "bottle",
+      "seed": 43,
+      "source_run": "bottle-baseline-20261019-204429",
+      "split_sha256": "8e2b0ab8e3251ea6927de60f073a7054e6f9594ad89a8b5d634ae222dc406973",
+      "coreset_sha256": "9f938a9251bf5fd55f3f3310b6414b2dc1bc87ffb7c254598d751f173ffbe0c5",
+      "parity": {
+        "images": 42,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            5.42194998706691,
+            4.494100023293868,
+            4.844649985898286,
+            4.540499969152734,
+            4.789099999470636,
+            4.413799993926659,
+            4.875500017078593,
+            5.100599984871224,
+            5.83685000310652,
+            5.31900001806207,
+            5.084750009700656,
+            4.748050007037818,
+            4.886650014668703,
+            4.815649997908622,
+            5.015649978304282
+          ],
+          "peak_allocated_bytes": [
+            30978048,
+            30978048,
+            30978048
+          ],
+          "peak_extra_bytes": [
+            6953472,
+            6953472,
+            6953472
+          ],
+          "latency_median_ms": 4.875500017078593,
+          "peak_allocated_bytes_max": 30978048,
+          "peak_extra_bytes_max": 6953472
+        },
+        "chunk196": {
+          "block_median_ms": [
+            4.98195001273416,
+            5.1202500180806965,
+            4.695049981819466,
+            4.737350012874231,
+            4.667200002586469,
+            5.022550001740456,
+            4.790099977981299,
+            5.295449984259903,
+            5.556099989917129,
+            5.935199995292351,
+            5.137650005053729,
+            5.169700016267598,
+            4.949800029862672,
+            4.962200007867068,
+            4.613550001522526
+          ],
+          "peak_allocated_bytes": [
+            30447104,
+            30447104,
+            30447104
+          ],
+          "peak_extra_bytes": [
+            6422528,
+            6422528,
+            6422528
+          ],
+          "latency_median_ms": 4.98195001273416,
+          "peak_allocated_bytes_max": 30447104,
+          "peak_extra_bytes_max": 6422528
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 1.0,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9836262464523315,
+          "pixel_F1Score": 0.6842375993728638
+        },
+        "chunk196": {
+          "image_AUROC": 1.0,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9836262464523315,
+          "pixel_F1Score": 0.6842375993728638
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 1.0,
+        "pixel_AUROC": 0.9836262464523315,
+        "pixel_F1Score": 0.6842375993728638
+      }
+    },
+    {
+      "dataset": "cable",
+      "seed": 43,
+      "source_run": "cable-baseline-20261019-204631",
+      "split_sha256": "95cde542b0f5cfcf15d0d8827afffcc78e6614daed671cb42db32f8720d723da",
+      "coreset_sha256": "588e24a940da15dd29304fb7b02cbaedd495935eb1ee7ba753af53b7cee54e82",
+      "parity": {
+        "images": 75,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            5.090749968076125,
+            4.6953000128269196,
+            4.676300013670698,
+            5.004949984140694,
+            4.911249998258427,
+            4.8476000083610415,
+            4.780399991432205,
+            4.703400016296655,
+            4.887599992798641,
+            4.782000003615394,
+            4.847550007980317,
+            5.002949998015538,
+            5.112799990456551,
+            4.831800004467368,
+            4.970650014001876
+          ],
+          "peak_allocated_bytes": [
+            31529984,
+            31529984,
+            31529984
+          ],
+          "peak_extra_bytes": [
+            7324160,
+            7324160,
+            7324160
+          ],
+          "latency_median_ms": 4.8476000083610415,
+          "peak_allocated_bytes_max": 31529984,
+          "peak_extra_bytes_max": 7324160
+        },
+        "chunk196": {
+          "block_median_ms": [
+            4.6256500063464046,
+            5.4671499819960445,
+            4.929000017000362,
+            4.731799999717623,
+            5.099499976495281,
+            5.35525000304915,
+            5.166899994947016,
+            4.859750013565645,
+            5.064450000645593,
+            5.037099996116012,
+            5.195950041525066,
+            4.851649980992079,
+            4.839300032472238,
+            5.500500003108755,
+            5.3776999993715435
+          ],
+          "peak_allocated_bytes": [
+            31480320,
+            31480320,
+            31480320
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 5.064450000645593,
+          "peak_allocated_bytes_max": 31480320,
+          "peak_extra_bytes_max": 7274496
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 0.9812593460083008,
+          "image_F1Score": 0.9347826242446899,
+          "pixel_AUROC": 0.9870526790618896,
+          "pixel_F1Score": 0.695476770401001
+        },
+        "chunk196": {
+          "image_AUROC": 0.9812593460083008,
+          "image_F1Score": 0.9347826242446899,
+          "pixel_AUROC": 0.9870526790618896,
+          "pixel_F1Score": 0.695476770401001
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 0.9812593460083008,
+        "image_F1Score": 0.9347826242446899,
+        "pixel_AUROC": 0.9870526790618896,
+        "pixel_F1Score": 0.695476770401001
+      }
+    },
+    {
+      "dataset": "capsule",
+      "seed": 43,
+      "source_run": "capsule-baseline-20261019-204924",
+      "split_sha256": "6525321a437174245b44b291933099fc795612ab6c1b06c85321a4ee538010df",
+      "coreset_sha256": "5b2b5f0c030f8ead743076af3ab3bda359e0cc4e3b7dda30848b4175ed9fd7ff",
+      "parity": {
+        "images": 67,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            5.986350006423891,
+            5.184150009881705,
+            4.852249985560775,
+            5.093500018119812,
+            4.755100002512336,
+            5.0543000106699765,
+            4.746849997900426,
+            4.977999982656911,
+            4.999700031476095,
+            5.023400008212775,
+            5.089849990326911,
+            5.070299986982718,
+            4.696799966040999,
+            4.573599988361821,
+            4.785199969774112
+          ],
+          "peak_allocated_bytes": [
+            31418880,
+            31418880,
+            31418880
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 4.999700031476095,
+          "peak_allocated_bytes_max": 31418880,
+          "peak_extra_bytes_max": 7274496
+        },
+        "chunk196": {
+          "block_median_ms": [
+            5.142350011738017,
+            4.770950006786734,
+            4.794450011104345,
+            4.821749986149371,
+            5.601950018899515,
+            5.383799987612292,
+            5.068850005045533,
+            5.2479999721981585,
+            4.973650007741526,
+            4.921650019241497,
+            4.826299991691485,
+            5.085450015030801,
+            4.949149995809421,
+            5.339300027117133,
+            4.845399991609156
+          ],
+          "peak_allocated_bytes": [
+            31418880,
+            31418880,
+            31418880
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 4.973650007741526,
+          "peak_allocated_bytes_max": 31418880,
+          "peak_extra_bytes_max": 7274496
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 0.9712120294570923,
+          "image_F1Score": 0.954954981803894,
+          "pixel_AUROC": 0.9794093370437622,
+          "pixel_F1Score": 0.5086429119110107
+        },
+        "chunk196": {
+          "image_AUROC": 0.9712120294570923,
+          "image_F1Score": 0.954954981803894,
+          "pixel_AUROC": 0.9794093370437622,
+          "pixel_F1Score": 0.5086429119110107
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 0.9712120294570923,
+        "image_F1Score": 0.954954981803894,
+        "pixel_AUROC": 0.9794093370437622,
+        "pixel_F1Score": 0.5086429119110107
+      }
+    },
+    {
+      "dataset": "bottle",
+      "seed": 44,
+      "source_run": "bottle-baseline-20261019-205201",
+      "split_sha256": "01a20ed64ac10fc4a244e8bcc4f9a4161b9698703d0db3dc34704ea21b0f1445",
+      "coreset_sha256": "ffb7851c910c0cb7e4e78b603cc08bc38cc87524a88649cf2492986109814387",
+      "parity": {
+        "images": 42,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            5.169899988686666,
+            4.625150002539158,
+            4.692400019848719,
+            4.629950009984896,
+            4.801200004294515,
+            4.642799991415814,
+            5.482500011567026,
+            4.632599971955642,
+            5.126450036186725,
+            4.944699991028756,
+            4.664949985453859,
+            4.983699967851862,
+            5.146549985511228,
+            4.948899993905798,
+            4.429050022736192
+          ],
+          "peak_allocated_bytes": [
+            30978048,
+            30978048,
+            30978048
+          ],
+          "peak_extra_bytes": [
+            6953472,
+            6953472,
+            6953472
+          ],
+          "latency_median_ms": 4.801200004294515,
+          "peak_allocated_bytes_max": 30978048,
+          "peak_extra_bytes_max": 6953472
+        },
+        "chunk196": {
+          "block_median_ms": [
+            4.790150007465854,
+            5.130549980094656,
+            5.364999989978969,
+            5.399999994551763,
+            5.385300028137863,
+            5.100649985251948,
+            5.213199998252094,
+            4.8034000210464,
+            5.418549990281463,
+            5.708050011890009,
+            5.798900005174801,
+            5.63900000997819,
+            5.4948000179138035,
+            5.080100003397092,
+            5.217149999225512
+          ],
+          "peak_allocated_bytes": [
+            30447104,
+            30447104,
+            30447104
+          ],
+          "peak_extra_bytes": [
+            6422528,
+            6422528,
+            6422528
+          ],
+          "latency_median_ms": 5.364999989978969,
+          "peak_allocated_bytes_max": 30447104,
+          "peak_extra_bytes_max": 6422528
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 1.0,
+          "image_F1Score": 0.9841269850730896,
+          "pixel_AUROC": 0.9809044599533081,
+          "pixel_F1Score": 0.6881973147392273
+        },
+        "chunk196": {
+          "image_AUROC": 1.0,
+          "image_F1Score": 0.9841269850730896,
+          "pixel_AUROC": 0.9809044599533081,
+          "pixel_F1Score": 0.6881973147392273
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 1.0,
+        "image_F1Score": 0.9841269850730896,
+        "pixel_AUROC": 0.9809044599533081,
+        "pixel_F1Score": 0.6881973147392273
+      }
+    },
+    {
+      "dataset": "cable",
+      "seed": 44,
+      "source_run": "cable-baseline-20261019-205349",
+      "split_sha256": "bc4e82eb27fba53e687f3d58c9a70dd2e580e7f6f739e29b0293a3243da41d67",
+      "coreset_sha256": "10c1431e3ca6ecaeca26d6bb6b2d17abe86e667afbe258824dc741d2f0059ef3",
+      "parity": {
+        "images": 75,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            5.307449959218502,
+            5.3849499963689595,
+            5.1656499854288995,
+            5.4047499725129455,
+            4.7842999920248985,
+            4.908299975795671,
+            4.9100000178441405,
+            4.540800000540912,
+            4.66560001950711,
+            5.754900019383058,
+            4.653750016586855,
+            4.738649993669242,
+            4.916600009892136,
+            5.11815000209026,
+            4.527350014541298
+          ],
+          "peak_allocated_bytes": [
+            31529984,
+            31529984,
+            31529984
+          ],
+          "peak_extra_bytes": [
+            7324160,
+            7324160,
+            7324160
+          ],
+          "latency_median_ms": 4.9100000178441405,
+          "peak_allocated_bytes_max": 31529984,
+          "peak_extra_bytes_max": 7324160
+        },
+        "chunk196": {
+          "block_median_ms": [
+            5.479449988342822,
+            5.691399972420186,
+            5.221900006290525,
+            5.977499997243285,
+            5.109499994432554,
+            5.412149999756366,
+            4.995000024791807,
+            5.1508499891497195,
+            4.925300017930567,
+            5.985650030197576,
+            5.195349978748709,
+            4.975250019924715,
+            4.965550033375621,
+            4.809450008906424,
+            5.2160500199534
+          ],
+          "peak_allocated_bytes": [
+            31480320,
+            31480320,
+            31480320
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 5.195349978748709,
+          "peak_allocated_bytes_max": 31480320,
+          "peak_extra_bytes_max": 7274496
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 0.9940029978752136,
+          "image_F1Score": 0.9583333134651184,
+          "pixel_AUROC": 0.9870657324790955,
+          "pixel_F1Score": 0.6984590888023376
+        },
+        "chunk196": {
+          "image_AUROC": 0.9940029978752136,
+          "image_F1Score": 0.9583333134651184,
+          "pixel_AUROC": 0.9870657324790955,
+          "pixel_F1Score": 0.6984590888023376
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 0.9940029978752136,
+        "image_F1Score": 0.9583333134651184,
+        "pixel_AUROC": 0.9870657324790955,
+        "pixel_F1Score": 0.6984590888023376
+      }
+    },
+    {
+      "dataset": "capsule",
+      "seed": 44,
+      "source_run": "capsule-baseline-20261019-205636",
+      "split_sha256": "c09ed1312739aaf74a7b486def196420fcd20f5eb0a92013b1232868519a4af6",
+      "coreset_sha256": "4046404c8033540d958f82b0c8368b36503569a8c07cf066039f3d022b5c56c9",
+      "parity": {
+        "images": 67,
+        "unequal_scores": 0,
+        "unequal_maps": 0,
+        "max_score_error": 0.0,
+        "max_map_error": 0.0
+      },
+      "benchmark": {
+        "upstream": {
+          "block_median_ms": [
+            5.254849995253608,
+            5.063500022515655,
+            4.762100026709959,
+            5.865250015631318,
+            4.89959999686107,
+            4.923599975882098,
+            4.8485999868717045,
+            5.179350002435967,
+            4.716099996585399,
+            4.8743499792180955,
+            5.170500022359192,
+            4.590399999869987,
+            4.81444998877123,
+            4.743250028695911,
+            5.5124000064097345
+          ],
+          "peak_allocated_bytes": [
+            31418880,
+            31418880,
+            31418880
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 4.89959999686107,
+          "peak_allocated_bytes_max": 31418880,
+          "peak_extra_bytes_max": 7274496
+        },
+        "chunk196": {
+          "block_median_ms": [
+            5.0759000005200505,
+            5.344350007362664,
+            5.641800002194941,
+            5.599149997578934,
+            5.142250040080398,
+            5.24050000240095,
+            5.792200012365356,
+            5.196499987505376,
+            4.863599984673783,
+            4.843349975999445,
+            4.753849992994219,
+            4.9809500051196665,
+            5.451250006444752,
+            5.057749978732318,
+            5.368350015487522
+          ],
+          "peak_allocated_bytes": [
+            31418880,
+            31418880,
+            31418880
+          ],
+          "peak_extra_bytes": [
+            7274496,
+            7274496,
+            7274496
+          ],
+          "latency_median_ms": 5.196499987505376,
+          "peak_allocated_bytes_max": 31418880,
+          "peak_extra_bytes_max": 7274496
+        }
+      },
+      "metrics": {
+        "upstream": {
+          "image_AUROC": 0.9151514768600464,
+          "image_F1Score": 0.9369369149208069,
+          "pixel_AUROC": 0.9852251410484314,
+          "pixel_F1Score": 0.4617849290370941
+        },
+        "chunk196": {
+          "image_AUROC": 0.9151514768600464,
+          "image_F1Score": 0.9369369149208069,
+          "pixel_AUROC": 0.9852251410484314,
+          "pixel_F1Score": 0.4617849290370941
+        }
+      },
+      "historical_metrics": {
+        "image_AUROC": 0.9151514768600464,
+        "image_F1Score": 0.9369369149208069,
+        "pixel_AUROC": 0.9852251410484314,
+        "pixel_F1Score": 0.4617849290370941
+      }
+    }
+  ],
+  "complete": true,
+  "acceptance": "Not selected: exact detection quality, but some runs had no forward peak-memory benefit and inference latency increased. Never enabled in the production prediction path."
+}

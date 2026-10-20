@@ -6,7 +6,7 @@ const imageURL = path => '/api/file?path=' + encodeURIComponent(path);
 let state, currentImages = [], imageIndex = 0, selectedRun = '', uploadID = '', pollBusy = false, previousJob = '';
 function toast(message) { $('toast').textContent = message; $('toast').classList.remove('hidden'); clearTimeout(toast.timer); toast.timer = setTimeout(()=>$('toast').classList.add('hidden'), 6000); }
 async function api(path, body) { const r = await fetch(path, body ? {method:'POST',headers:{'Content-Type':'application/json','X-Lab-Token':state.token},body:JSON.stringify(body)} : {}); const data = await r.json(); if(!r.ok) throw new Error(data.error || '请求失败'); return data; }
-function page(name) { document.querySelectorAll('.page').forEach(e=>e.classList.toggle('active',e.id===name)); document.querySelectorAll('.nav').forEach(e=>e.classList.toggle('active',e.dataset.page===name)); $('page-title').textContent = {overview:'实验总览',detect:'图像检测',experiments:'对比实验'}[name]; location.hash=name; }
+function page(name) { document.querySelectorAll('.page').forEach(e=>e.classList.toggle('active',e.id===name)); document.querySelectorAll('.nav').forEach(e=>e.classList.toggle('active',e.dataset.page===name)); $('page-title').textContent = {overview:'实验总览',detect:'图像检测',experiments:'对比实验',storage:'无损部署'}[name]; location.hash=name; }
 document.querySelectorAll('[data-page]').forEach(e=>e.onclick=()=>page(e.dataset.page));
 document.querySelectorAll('[data-goto]').forEach(e=>e.onclick=()=>page(e.dataset.goto));
 function options(select, items, label) { const old=select.value; const html=items.map(item=>`<option value="${esc(item.id)}" ${item.ready===false?'disabled':''}>${esc(label(item))}</option>`).join(''); if(select.innerHTML!==html) { select.innerHTML=html; if(items.some(i=>i.id===old)) select.value=old; } }
@@ -55,7 +55,30 @@ function renderSummary(summary) {
   return `<tr><td>${esc(r.dataset)}<small>${esc(r.method)}</small></td><td>${r.n}</td><td>${stat(s.image_AUROC)}</td><td>${stat(s.image_F1Score)}</td><td>${stat(s.pixel_AUROC)}</td><td>${r.method==='baseline'?'基线':r.paired_changes.search_state_reduction_percent.mean.toFixed(2)+'%'}</td><td class="delta ${change<0?'bad':''}">${r.method==='baseline'?'—':(change>=0?'+':'')+change.toFixed(3)+' pp'}</td></tr>`;
  }).join('')||'<tr><td colspan="7">尚无完整配对：同类别、同种子需要 baseline、pca96 和 pca192 三组结果。</td></tr>';
 }
-async function refresh(){if(pollBusy)return;pollBusy=true;try{state=await api('/api/state');$('connection-error').classList.add('hidden');render();try{renderSummary(await api('/api/summary'));}catch(error){$('summary-status').textContent='汇总不可用：'+error.message;$('summary-table').innerHTML='';}}catch(e){$('connection-error').classList.remove('hidden');}finally{pollBusy=false;}}
+let storageReport;
+function renderRestoreCommand() {
+ if(!storageReport)return;
+ $('restore-command').textContent=`.\\.venv\\Scripts\\python.exe course/lossless_package.py restore --package "${storageReport.package}" --run "${$('restore-run').value}" --output "course/outputs/restored-${$('restore-run').value}/baseline.ckpt"`;
+}
+function renderStorage(report) {
+ storageReport=report;
+ if(!report.complete){$('storage-status').textContent='尚未生成无损模型包，请先运行 audit_lossless.py 和 report_lossless.py。';return;}
+ const b=report.bundle;
+ $('storage-before').textContent=(b.original_bytes/1048576).toFixed(2)+' MiB';
+ $('storage-after').textContent=(b.package_bytes/1048576).toFixed(2)+' MiB';
+ $('storage-saving').textContent=b.reduction_percent.toFixed(2)+'%';
+ $('storage-parity').textContent=report.runs.filter(r=>r.byte_identical&&r.state_dict_identical&&r.metrics_identical).length+' / '+report.runs.length;
+ $('storage-status').textContent=`${report.test_image_evaluations} 次测试图像评估完成；9 个恢复模型的四项检测指标全部与原始记录相同。${report.package_available?'':'当前机器尚无模型包，请运行打包验证命令。'}`;
+ $('download-bundle').classList.toggle('hidden',!report.package_available);$('download-bundle').href='/api/package?run=bundle';
+ $('storage-table').innerHTML=report.runs.map(r=>`<tr><td>${esc(r.dataset)}<small>seed ${r.seed} · ${esc(r.source_run)}</small></td><td>${(r.single_package.original_bytes/1048576).toFixed(2)}</td><td>${(r.single_package.package_bytes/1048576).toFixed(2)}</td><td class="delta">${r.single_package.reduction_percent.toFixed(2)}%</td><td>${r.metrics_identical?'全部不变':'尚未通过'}</td><td>${report.package_available?`<a class="text-link" download="${esc(r.source_run)}.alpack" href="/api/package?run=${encodeURIComponent(r.source_run)}">下载 ↓</a>`:'本地未生成'}</td></tr>`).join('');
+ options($('restore-run'),report.runs.map(r=>({id:r.source_run})),r=>r.id);
+ const times=report.runs.map(r=>r.restore_seconds);
+ $('storage-cost').textContent=`本机打包组合包约 ${b.pack_seconds.toFixed(2)} 秒，恢复单个模型约 ${Math.min(...times).toFixed(3)}–${Math.max(...times).toFixed(3)} 秒。此项收益是部署包大小，不是推理速度或显存。`;
+ $('package-location').textContent='本地组合包：'+report.package_local_path;
+ renderRestoreCommand();
+}
+$('restore-run').onchange=renderRestoreCommand;
+async function refresh(){if(pollBusy)return;pollBusy=true;try{state=await api('/api/state');$('connection-error').classList.add('hidden');render();try{renderSummary(await api('/api/summary'));}catch(error){$('summary-status').textContent='汇总不可用：'+error.message;$('summary-table').innerHTML='';}try{renderStorage(await api('/api/storage'));}catch(error){$('storage-status').textContent='存储报告不可用：'+error.message;}}catch(e){$('connection-error').classList.remove('hidden');}finally{pollBusy=false;}}
 async function submit(body){try{await api('/api/job',body);toast('任务已启动，日志显示在页面下方');await refresh();$('job-panel').scrollIntoView({behavior:'smooth',block:'nearest'});}catch(e){toast(e.message);}}
 $('train').onclick=()=>submit({task:'train',dataset:$('train-dataset').value,method:$('train-method').value,seed:Number($('train-seed').value),device:$('train-device').value});
 $('download').onclick=()=>submit({task:'download'});
@@ -63,5 +86,5 @@ $('predict').onclick=()=>{if(!uploadID)return toast('请先选择一张图片');
 $('image-input').onchange=async event=>{const file=event.target.files[0];if(!file)return;uploadID='';if(file.size>10000000)return toast('图片请小于 10 MB');try{const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file);});const result=await api('/api/upload',{data:data.split(',')[1]});uploadID=result.id;$('upload-preview').src=data;$('upload-preview').classList.remove('hidden');$('upload-label').classList.add('hidden');}catch(e){toast(e.message);}};
 $('toggle-log').onclick=()=>{$('job-log').classList.toggle('hidden');$('toggle-log').textContent=$('job-log').classList.contains('hidden')?'展开日志':'收起日志';};
 $('refresh').onclick=refresh;
-if(['overview','detect','experiments'].includes(location.hash.slice(1)))page(location.hash.slice(1));
+if(['overview','detect','experiments','storage'].includes(location.hash.slice(1)))page(location.hash.slice(1));
 refresh();setInterval(refresh,4000);
