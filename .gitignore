@@ -198,3 +198,8 @@ course/environment-freeze.txt
 course/results/*
 !course/results/pilot_metrics.json
 !course/results/pilot_metrics.csv
+
+!course/results/multiseed_metrics.json
+!course/results/multiseed_metrics.csv
+!course/results/multiseed_summary.csv
+!course/results/multiseed_comparison.png

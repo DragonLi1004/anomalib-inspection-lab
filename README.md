@@ -2,7 +2,7 @@
 
 本地中文工业缺陷检测 GUI、PatchCore 特征压缩与可复现实验。
 
-**开始使用：[课程说明](README_课程.md) · [实验报告](course/实验报告.md)**
+**开始使用：[课程说明](README_课程.md) · [多种子实验报告](course/多种子实验报告.md) · [首轮实验](course/实验报告.md)**
 
 本仓库基于 anomalib lib/v2.5.1，保留上游源码、历史和 Apache-2.0 许可证；课程扩展位于 `course/`。以下为上游 README。
 

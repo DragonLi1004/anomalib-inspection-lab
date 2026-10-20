@@ -1,0 +1,2873 @@
+{
+  "protocol_version": "paired-coreset-v2",
+  "created_at": "2026-10-20T10:26:13.919314+08:00",
+  "course_source_lf_sha256": "1ad8a23f4ee9c9a91090f251f53965a999b1cb426eb8c5500cccfaf896b9a702",
+  "source_files_in_hash_order": [
+    "course/experiment.py",
+    "course/compact_patchcore.py"
+  ],
+  "environment": {
+    "torch": "2.13.0+cu126",
+    "torchvision": "0.28.0+cu126",
+    "lightning": "2.6.5",
+    "timm": "1.0.28",
+    "numpy": "2.4.6"
+  },
+  "summary": {
+    "complete": true,
+    "matched_groups": 9,
+    "expected_groups": 9,
+    "available_runs": 27,
+    "expected_runs": 27,
+    "missing": [],
+    "rows": [
+      {
+        "dataset": "bottle",
+        "method": "baseline",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "image_F1Score": {
+            "mean": 0.9947089950243632,
+            "std": 0.009164289440902668
+          },
+          "pixel_AUROC": {
+            "mean": 0.9812585711479187,
+            "std": 0.002211981183188354
+          },
+          "pixel_F1Score": {
+            "mean": 0.6885032057762146,
+            "std": 0.004426485974327429
+          },
+          "search_state_bytes": {
+            "mean": 2515968,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 2515968,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 0,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 13767939,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 31.32999999797903,
+            "std": 3.518186244491078
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "image_F1Score_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          }
+        }
+      },
+      {
+        "dataset": "bottle",
+        "method": "pca96",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 1.00000003973643,
+            "std": 6.882551541204759e-08
+          },
+          "image_F1Score": {
+            "mean": 0.9947089950243632,
+            "std": 0.009164289440902668
+          },
+          "pixel_AUROC": {
+            "mean": 0.9813981254895529,
+            "std": 0.002360305433860431
+          },
+          "pixel_F1Score": {
+            "mean": 0.6901048024495443,
+            "std": 0.008298847005843553
+          },
+          "search_state_bytes": {
+            "mean": 777984,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 628992,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 148992,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 12031229,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 29.065300012007356,
+            "std": 1.7958044517206755
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 69.07814407814408,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": 3.973642985026042e-06,
+            "std": 6.8825515412047595e-06
+          },
+          "image_F1Score_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": 0.013955434163411459,
+            "std": 0.08020008093563462
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": 0.16015966733296713,
+            "std": 1.1311093231489677
+          }
+        }
+      },
+      {
+        "dataset": "bottle",
+        "method": "pca192",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 1.00000003973643,
+            "std": 6.882551541204759e-08
+          },
+          "image_F1Score": {
+            "mean": 0.9947089950243632,
+            "std": 0.009164289440902668
+          },
+          "pixel_AUROC": {
+            "mean": 0.9817889928817749,
+            "std": 0.002156445759880948
+          },
+          "pixel_F1Score": {
+            "mean": 0.6945552825927734,
+            "std": 0.002984077100733332
+          },
+          "search_state_bytes": {
+            "mean": 1554432,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 1257984,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 296448,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 12807677,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 32.153466677603625,
+            "std": 0.9694517589316906
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 38.21733821733822,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": 3.973642985026042e-06,
+            "std": 6.8825515412047595e-06
+          },
+          "image_F1Score_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": 0.05304217338562012,
+            "std": 0.046098919328310034
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": 0.6052076816558838,
+            "std": 0.3884074970192926
+          }
+        }
+      },
+      {
+        "dataset": "cable",
+        "method": "baseline",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 0.984007994333903,
+            "std": 0.00894328874969584
+          },
+          "image_F1Score": {
+            "mean": 0.9381547570228577,
+            "std": 0.018721662532265683
+          },
+          "pixel_AUROC": {
+            "mean": 0.985467771689097,
+            "std": 0.002756452412831807
+          },
+          "pixel_F1Score": {
+            "mean": 0.6781303882598877,
+            "std": 0.03266163570875979
+          },
+          "search_state_bytes": {
+            "mean": 2697216,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 2697216,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 0,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 13949187,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 32.501266667774566,
+            "std": 0.2621282955427708
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "image_F1Score_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          }
+        }
+      },
+      {
+        "dataset": "cable",
+        "method": "pca96",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 0.9637681047121683,
+            "std": 0.019057810040282418
+          },
+          "image_F1Score": {
+            "mean": 0.9202090899149576,
+            "std": 0.02067092865541613
+          },
+          "pixel_AUROC": {
+            "mean": 0.9831074078877767,
+            "std": 0.003358490787212779
+          },
+          "pixel_F1Score": {
+            "mean": 0.6746427615483602,
+            "std": 0.02940462502935171
+          },
+          "search_state_bytes": {
+            "mean": 823296,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 674304,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 148992,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 12076541,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 31.01939998547702,
+            "std": 4.693289256938865
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 69.47608200455582,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": -2.023988962173462,
+            "std": 1.1685540134234502
+          },
+          "image_F1Score_delta_pp": {
+            "mean": -1.7945667107899983,
+            "std": 1.0805150780398027
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": -0.2360363801320394,
+            "std": 0.08702652542941429
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": -0.34876267115275067,
+            "std": 0.5783278490576793
+          }
+        }
+      },
+      {
+        "dataset": "cable",
+        "method": "pca192",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 0.9752623438835144,
+            "std": 0.014301949479049196
+          },
+          "image_F1Score": {
+            "mean": 0.9323549071947733,
+            "std": 0.019195555521662116
+          },
+          "pixel_AUROC": {
+            "mean": 0.9849768082300822,
+            "std": 0.002854679000987192
+          },
+          "pixel_F1Score": {
+            "mean": 0.6810125311215719,
+            "std": 0.028902113703431043
+          },
+          "search_state_bytes": {
+            "mean": 1645056,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 1348608,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 296448,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 12898301,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 31.0765000176616,
+            "std": 2.2764333968657815
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 39.00911161731207,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": -0.874565045038859,
+            "std": 0.5725372170120088
+          },
+          "image_F1Score_delta_pp": {
+            "mean": -0.579984982808431,
+            "std": 0.7378299386660893
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": -0.04909634590148926,
+            "std": 0.026581345416835496
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": 0.2882142861684163,
+            "std": 0.5578570856165425
+          }
+        }
+      },
+      {
+        "dataset": "capsule",
+        "method": "baseline",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 0.9520201484362284,
+            "std": 0.0319381915991494
+          },
+          "image_F1Score": {
+            "mean": 0.9580115874608358,
+            "std": 0.02275745205675589
+          },
+          "pixel_AUROC": {
+            "mean": 0.9833646814028422,
+            "std": 0.003427433519018951
+          },
+          "pixel_F1Score": {
+            "mean": 0.49163298805554706,
+            "std": 0.02593320122160881
+          },
+          "search_state_bytes": {
+            "mean": 2635776,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 2635776,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 0,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 13887747,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 31.104499998036772,
+            "std": 3.1833095614779134
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "image_F1Score_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": 0.0,
+            "std": 0.0
+          }
+        }
+      },
+      {
+        "dataset": "capsule",
+        "method": "pca96",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 0.9368686676025391,
+            "std": 0.029431870167947054
+          },
+          "image_F1Score": {
+            "mean": 0.9439527789751688,
+            "std": 0.010218593098742118
+          },
+          "pixel_AUROC": {
+            "mean": 0.9831735491752625,
+            "std": 0.0037042783926704943
+          },
+          "pixel_F1Score": {
+            "mean": 0.4728301962216695,
+            "std": 0.023349919715756767
+          },
+          "search_state_bytes": {
+            "mean": 807936,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 658944,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 148992,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 12061181,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 28.920800007957343,
+            "std": 2.7242239007637052
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 69.34731934731934,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": -1.5151480833689372,
+            "std": 0.9216312773200449
+          },
+          "image_F1Score_delta_pp": {
+            "mean": -1.4058808485666912,
+            "std": 1.3972072926352708
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": -0.01911322275797526,
+            "std": 0.07768502026001652
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": -1.8802791833877563,
+            "std": 2.567095692296163
+          }
+        }
+      },
+      {
+        "dataset": "capsule",
+        "method": "pca192",
+        "n": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "statistics": {
+          "image_AUROC": {
+            "mean": 0.9505050381024679,
+            "std": 0.03378936408864139
+          },
+          "image_F1Score": {
+            "mean": 0.9519404570261637,
+            "std": 0.021372396305229302
+          },
+          "pixel_AUROC": {
+            "mean": 0.9842732747395834,
+            "std": 0.0032500536569170743
+          },
+          "pixel_F1Score": {
+            "mean": 0.498698353767395,
+            "std": 0.020589208689771512
+          },
+          "search_state_bytes": {
+            "mean": 1614336,
+            "std": 0.0
+          },
+          "memory_bank_bytes": {
+            "mean": 1317888,
+            "std": 0.0
+          },
+          "projection_bytes": {
+            "mean": 296448,
+            "std": 0.0
+          },
+          "checkpoint_bytes": {
+            "mean": 12867581,
+            "std": 0.0
+          },
+          "latency_median_ms": {
+            "mean": 31.95759998440432,
+            "std": 0.6363115956445493
+          }
+        },
+        "paired_changes": {
+          "search_state_reduction_percent": {
+            "mean": 38.752913752913756,
+            "std": 0.0
+          },
+          "image_AUROC_delta_pp": {
+            "mean": -0.15151103337605795,
+            "std": 0.5462959533873629
+          },
+          "image_F1Score_delta_pp": {
+            "mean": -0.6071130434672037,
+            "std": 1.3324394381813567
+          },
+          "pixel_AUROC_delta_pp": {
+            "mean": 0.09085933367411296,
+            "std": 0.02592235627549273
+          },
+          "pixel_F1Score_delta_pp": {
+            "mean": 0.7065365711847941,
+            "std": 0.6528122632002784
+          }
+        }
+      }
+    ],
+    "note": "Sample SD across seeds 42/43/44; overlapping data splits, not independent datasets or confidence intervals."
+  },
+  "runs": [
+    {
+      "run_id": "bottle-baseline-20261019-092413",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "e722d17d4a084a733c71fa0ec2308ffd3432f7b957bbe3cd4842949c78591973",
+      "dataset": "bottle",
+      "method": "baseline",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "cd96b2bc635535871071200ad06b8a6ae4d5e48a4aeb66185738bc25ef27e7e9",
+      "metrics": [
+        {
+          "image_AUROC": 1.0,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9792450070381165,
+          "pixel_F1Score": 0.6930747032165527
+        }
+      ],
+      "fit_wall_seconds": 16.344360200018855,
+      "memory_bank_shape": [
+        1638,
+        384
+      ],
+      "memory_bank_bytes": 2515968,
+      "projection_bytes": 0,
+      "search_state_bytes": 2515968,
+      "checkpoint_bytes": 13767939,
+      "latency_median_ms": 27.593250008067116,
+      "latency_samples_ms": [
+        26.08969999710098,
+        30.440100003033876,
+        24.63340002577752,
+        21.455900016007945,
+        21.454100002301857,
+        24.943499971413985,
+        22.260199999436736,
+        29.020599991781637,
+        31.912800011923537,
+        21.683599974494427,
+        30.405900004552677,
+        26.36360001633875,
+        26.64799999911338,
+        29.74460000405088,
+        26.520299987168983,
+        23.95740000065416,
+        27.302300004521385,
+        27.67810001387261,
+        28.781000000890344,
+        27.508400002261624,
+        26.3013000076171,
+        26.950100000249222,
+        30.981099989730865,
+        28.88070000335574,
+        34.15210000821389,
+        31.963499990524724,
+        28.649099986068904,
+        34.45629999623634,
+        33.64400001009926,
+        30.67639999790117
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664059904,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "bottle-pca96-20261019-092453",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "e722d17d4a084a733c71fa0ec2308ffd3432f7b957bbe3cd4842949c78591973",
+      "dataset": "bottle",
+      "method": "pca96",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "cd96b2bc635535871071200ad06b8a6ae4d5e48a4aeb66185738bc25ef27e7e9",
+      "metrics": [
+        {
+          "image_AUROC": 1.0000001192092896,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9799470901489258,
+          "pixel_F1Score": 0.6891144514083862
+        }
+      ],
+      "fit_wall_seconds": 16.81446570000844,
+      "memory_bank_shape": [
+        1638,
+        96
+      ],
+      "memory_bank_bytes": 628992,
+      "projection_bytes": 148992,
+      "search_state_bytes": 777984,
+      "checkpoint_bytes": 12031229,
+      "latency_median_ms": 27.015550003852695,
+      "latency_samples_ms": [
+        26.820900005986914,
+        28.036699979566038,
+        26.499400002649054,
+        26.33239998249337,
+        25.751500012120232,
+        25.20790000562556,
+        26.467699994100258,
+        32.05130001879297,
+        31.983799999579787,
+        24.54290000605397,
+        26.32940001785755,
+        26.654699991922826,
+        23.1826999806799,
+        28.244699991773814,
+        24.1575000109151,
+        30.59080001548864,
+        26.74000000115484,
+        30.094699992332608,
+        26.556700002402067,
+        27.738300006603822,
+        26.688899990404025,
+        28.91190000809729,
+        29.719999991357327,
+        27.813700027763844,
+        29.009299993049353,
+        29.5062999939546,
+        27.210200001718476,
+        29.38320001703687,
+        24.3307999917306,
+        28.113100008340552
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664060416,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9721608757972717
+    },
+    {
+      "run_id": "cable-baseline-20261019-092534",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "77f52d612dcaff7ab03c29c0209e3b1e4552252bd9adbe27a683acc3cf781287",
+      "dataset": "cable",
+      "method": "baseline",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "649a6c03c8c2932874ed225f1372c677bfa71fd8f214bdf7a40a9f85396ae5fa",
+      "metrics": [
+        {
+          "image_AUROC": 0.9767616391181946,
+          "image_F1Score": 0.9213483333587646,
+          "pixel_AUROC": 0.9822849035263062,
+          "pixel_F1Score": 0.6404553055763245
+        }
+      ],
+      "fit_wall_seconds": 25.52596560001257,
+      "memory_bank_shape": [
+        1756,
+        384
+      ],
+      "memory_bank_bytes": 2697216,
+      "projection_bytes": 0,
+      "search_state_bytes": 2697216,
+      "checkpoint_bytes": 13949187,
+      "latency_median_ms": 32.28514999500476,
+      "latency_samples_ms": [
+        33.38540002005175,
+        27.741199999582022,
+        30.097700015176088,
+        31.751500006066635,
+        31.578499998431653,
+        29.422199993859977,
+        34.78919999906793,
+        35.72179999900982,
+        30.754700012039393,
+        30.487400013953447,
+        32.24070000578649,
+        35.29759999946691,
+        36.44569998141378,
+        34.9141999904532,
+        28.668599989032373,
+        28.152600018074736,
+        35.837700008414686,
+        33.842100005131215,
+        30.432800005655736,
+        32.32959998422302,
+        30.136599991237745,
+        26.748199976282194,
+        36.805400013690814,
+        37.923700001556426,
+        29.33880002819933,
+        32.89410000434145,
+        42.68840001896024,
+        39.85229998943396,
+        32.52239999710582,
+        28.363399993395433
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712426496,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "cable-pca96-20261019-092632",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "77f52d612dcaff7ab03c29c0209e3b1e4552252bd9adbe27a683acc3cf781287",
+      "dataset": "cable",
+      "method": "pca96",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "649a6c03c8c2932874ed225f1372c677bfa71fd8f214bdf7a40a9f85396ae5fa",
+      "metrics": [
+        {
+          "image_AUROC": 0.943028450012207,
+          "image_F1Score": 0.8965517282485962,
+          "pixel_AUROC": 0.9793139696121216,
+          "pixel_F1Score": 0.6413662433624268
+        }
+      ],
+      "fit_wall_seconds": 25.583759500004817,
+      "memory_bank_shape": [
+        1756,
+        96
+      ],
+      "memory_bank_bytes": 674304,
+      "projection_bytes": 148992,
+      "search_state_bytes": 823296,
+      "checkpoint_bytes": 12076541,
+      "latency_median_ms": 26.884699982474558,
+      "latency_samples_ms": [
+        26.486899994779378,
+        22.632100008195266,
+        21.562699985224754,
+        24.108099984005094,
+        26.477199979126453,
+        23.931300005642697,
+        27.641200023936108,
+        24.798700003884733,
+        23.635699995793402,
+        30.565799999749288,
+        30.571999988751486,
+        28.74739997787401,
+        26.630799984559417,
+        20.321099989814684,
+        27.33129999251105,
+        27.937699982430786,
+        27.1385999803897,
+        23.963899991940707,
+        27.57430000929162,
+        24.577700009103864,
+        29.74609998636879,
+        25.52520000608638,
+        29.69900000607595,
+        25.601200002711266,
+        28.850600006990135,
+        25.977700017392635,
+        30.538200022419915,
+        28.966100013349205,
+        29.809600004227832,
+        29.48369999649003
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712427008,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9156246185302734
+    },
+    {
+      "run_id": "capsule-baseline-20261019-092724",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "a32e4a3acb814c7715f9d82721cb9ce88d5b8fe330b08195fa5bc048643d731c",
+      "dataset": "capsule",
+      "method": "baseline",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "3f0eb078ca54c18a6a1302e48a54c48a147ffe39c76a2760dd090f556871a036",
+      "metrics": [
+        {
+          "image_AUROC": 0.9696969389915466,
+          "image_F1Score": 0.9821428656578064,
+          "pixel_AUROC": 0.985459566116333,
+          "pixel_F1Score": 0.5044711232185364
+        }
+      ],
+      "fit_wall_seconds": 21.82489109999733,
+      "memory_bank_shape": [
+        1716,
+        384
+      ],
+      "memory_bank_bytes": 2635776,
+      "projection_bytes": 0,
+      "search_state_bytes": 2635776,
+      "checkpoint_bytes": 13887747,
+      "latency_median_ms": 28.98664999520406,
+      "latency_samples_ms": [
+        24.17399999103509,
+        31.360099994344637,
+        28.015000018058345,
+        25.41840000776574,
+        29.232800006866455,
+        27.65239999280311,
+        28.15059997374192,
+        28.550999995786697,
+        24.943500000517815,
+        25.958500016713515,
+        25.244000018574297,
+        28.52809999603778,
+        34.39689998049289,
+        28.736100008245558,
+        25.653200020315126,
+        31.910499994410202,
+        31.04689999599941,
+        32.665599981555715,
+        24.945199984358624,
+        31.271099986042827,
+        29.07029999187216,
+        31.914199993479997,
+        31.331900012446567,
+        34.81470001861453,
+        28.90299999853596,
+        31.78499999921769,
+        33.493900002213195,
+        34.136999980546534,
+        30.50789999542758,
+        27.65720000024885
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602240,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "capsule-pca96-20261019-092813",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "a32e4a3acb814c7715f9d82721cb9ce88d5b8fe330b08195fa5bc048643d731c",
+      "dataset": "capsule",
+      "method": "pca96",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "3f0eb078ca54c18a6a1302e48a54c48a147ffe39c76a2760dd090f556871a036",
+      "metrics": [
+        {
+          "image_AUROC": 0.9439393877983093,
+          "image_F1Score": 0.9557521939277649,
+          "pixel_AUROC": 0.9846552610397339,
+          "pixel_F1Score": 0.456552118062973
+        }
+      ],
+      "fit_wall_seconds": 21.972094099997776,
+      "memory_bank_shape": [
+        1716,
+        96
+      ],
+      "memory_bank_bytes": 658944,
+      "projection_bytes": 148992,
+      "search_state_bytes": 807936,
+      "checkpoint_bytes": 12061181,
+      "latency_median_ms": 25.834450003458187,
+      "latency_samples_ms": [
+        23.01959999022074,
+        26.98450000025332,
+        27.933599980315194,
+        30.797099985647947,
+        29.311399994185194,
+        23.749299987684935,
+        19.918999983929098,
+        28.176199994049966,
+        21.573299978626892,
+        20.77980001922697,
+        22.485900000901893,
+        25.24529999936931,
+        22.06250000745058,
+        21.04930000496097,
+        27.337600011378527,
+        28.051900007994846,
+        26.423600007547066,
+        24.595499999122694,
+        24.758499988820404,
+        31.51090000756085,
+        31.532499997410923,
+        30.760800000280142,
+        26.557500008493662,
+        22.1810000075493,
+        28.598499979125336,
+        22.08899997640401,
+        19.13040000363253,
+        24.253400013549253,
+        28.225600020959973,
+        26.502599997911602
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602752,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9673618078231812
+    },
+    {
+      "run_id": "bottle-pca192-20261019-204147",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "e722d17d4a084a733c71fa0ec2308ffd3432f7b957bbe3cd4842949c78591973",
+      "dataset": "bottle",
+      "method": "pca192",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "cd96b2bc635535871071200ad06b8a6ae4d5e48a4aeb66185738bc25ef27e7e9",
+      "metrics": [
+        {
+          "image_AUROC": 1.0,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9801883101463318,
+          "pixel_F1Score": 0.6974477171897888
+        }
+      ],
+      "fit_wall_seconds": 17.788487800047733,
+      "memory_bank_shape": [
+        1638,
+        192
+      ],
+      "memory_bank_bytes": 1257984,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1554432,
+      "checkpoint_bytes": 12807677,
+      "latency_median_ms": 32.916650001425296,
+      "latency_samples_ms": [
+        32.021099992562085,
+        28.63909996813163,
+        33.742700004950166,
+        32.8752999776043,
+        31.84710000641644,
+        32.95800002524629,
+        33.94390002358705,
+        30.551199975889176,
+        31.25459997681901,
+        31.937899999320507,
+        31.385499984025955,
+        34.70919997198507,
+        30.19049996510148,
+        32.84310002345592,
+        33.82829995825887,
+        36.617300007492304,
+        32.71369996946305,
+        35.012599953915924,
+        32.79919998021796,
+        36.73980000894517,
+        34.028800029773265,
+        34.6993999555707,
+        34.252299985382706,
+        35.09309998480603,
+        35.02549999393523,
+        35.854200017638505,
+        26.921799988485873,
+        29.24820000771433,
+        33.50349998800084,
+        31.724500004202127
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664060416,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9937336444854736
+    },
+    {
+      "run_id": "cable-pca192-20261019-204229",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "77f52d612dcaff7ab03c29c0209e3b1e4552252bd9adbe27a683acc3cf781287",
+      "dataset": "cable",
+      "method": "pca192",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "649a6c03c8c2932874ed225f1372c677bfa71fd8f214bdf7a40a9f85396ae5fa",
+      "metrics": [
+        {
+          "image_AUROC": 0.9617691040039062,
+          "image_F1Score": 0.9111111164093018,
+          "pixel_AUROC": 0.9816939830780029,
+          "pixel_F1Score": 0.6481779217720032
+        }
+      ],
+      "fit_wall_seconds": 28.722850000020117,
+      "memory_bank_shape": [
+        1756,
+        192
+      ],
+      "memory_bank_bytes": 1348608,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1645056,
+      "checkpoint_bytes": 12898301,
+      "latency_median_ms": 33.32395001780242,
+      "latency_samples_ms": [
+        36.584499990567565,
+        33.67689996957779,
+        29.53130000969395,
+        32.23790001356974,
+        33.3284999942407,
+        32.47529995860532,
+        33.822700032033026,
+        33.31940004136413,
+        32.87819999968633,
+        33.34470000118017,
+        30.955399968661368,
+        32.873100019060075,
+        31.537799979560077,
+        32.477599976118654,
+        34.65440002037212,
+        35.350400023162365,
+        33.21119997417554,
+        36.42229997785762,
+        34.837500017602,
+        29.617900028824806,
+        30.54909995989874,
+        34.11810001125559,
+        29.37999996356666,
+        32.69939997699112,
+        31.789899978321046,
+        33.93179998965934,
+        34.33509997557849,
+        33.41430000727996,
+        36.1640999908559,
+        35.11729999445379
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712427008,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9752457141876221
+    },
+    {
+      "run_id": "capsule-pca192-20261019-204331",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "a32e4a3acb814c7715f9d82721cb9ce88d5b8fe330b08195fa5bc048643d731c",
+      "dataset": "capsule",
+      "method": "pca192",
+      "seed": 42,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "3f0eb078ca54c18a6a1302e48a54c48a147ffe39c76a2760dd090f556871a036",
+      "metrics": [
+        {
+          "image_AUROC": 0.9636363983154297,
+          "image_F1Score": 0.9649122953414917,
+          "pixel_AUROC": 0.986076295375824,
+          "pixel_F1Score": 0.5052831172943115
+        }
+      ],
+      "fit_wall_seconds": 25.56558180000866,
+      "memory_bank_shape": [
+        1716,
+        192
+      ],
+      "memory_bank_bytes": 1317888,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1614336,
+      "checkpoint_bytes": 12867581,
+      "latency_median_ms": 32.525849994271994,
+      "latency_samples_ms": [
+        32.55060000810772,
+        32.46339998440817,
+        32.17740001855418,
+        32.0757000008598,
+        31.96120000211522,
+        31.290599959902465,
+        32.69180003553629,
+        33.052499988116324,
+        32.501099980436265,
+        32.7582000172697,
+        33.76399999251589,
+        32.73120004450902,
+        30.316400050651282,
+        33.16390002146363,
+        30.711599974893034,
+        31.37320000678301,
+        32.1375000057742,
+        33.577000023797154,
+        33.56860001804307,
+        36.018399987369776,
+        36.43439995357767,
+        34.144399978686124,
+        32.65800001099706,
+        33.98700000252575,
+        31.501500052399933,
+        33.080800028983504,
+        32.068600005004555,
+        31.02059999946505,
+        31.67539997957647,
+        29.89279996836558
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602752,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9924010634422302
+    },
+    {
+      "run_id": "bottle-baseline-20261019-204429",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "9f938a9251bf5fd55f3f3310b6414b2dc1bc87ffb7c254598d751f173ffbe0c5",
+      "dataset": "bottle",
+      "method": "baseline",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "8e2b0ab8e3251ea6927de60f073a7054e6f9594ad89a8b5d634ae222dc406973",
+      "metrics": [
+        {
+          "image_AUROC": 1.0,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9836262464523315,
+          "pixel_F1Score": 0.6842375993728638
+        }
+      ],
+      "fit_wall_seconds": 16.81744329998037,
+      "memory_bank_shape": [
+        1638,
+        384
+      ],
+      "memory_bank_bytes": 2515968,
+      "projection_bytes": 0,
+      "search_state_bytes": 2515968,
+      "checkpoint_bytes": 13767939,
+      "latency_median_ms": 34.57864999654703,
+      "latency_samples_ms": [
+        34.729400009382516,
+        35.313199972733855,
+        34.336899989284575,
+        32.482100010383874,
+        34.33320001931861,
+        33.62189995823428,
+        35.44900001725182,
+        34.60179996909574,
+        34.37780000967905,
+        37.813000031746924,
+        31.766599975526333,
+        34.17880000779405,
+        33.51410001050681,
+        33.454100019298494,
+        34.92120001465082,
+        33.75689999666065,
+        35.13350000139326,
+        32.837599981576204,
+        36.38679999858141,
+        35.45900003518909,
+        43.6964999535121,
+        45.04659998929128,
+        39.952199964318424,
+        39.99489999841899,
+        34.972399997059256,
+        33.42379996320233,
+        34.256800019647926,
+        34.55550002399832,
+        34.172299958299845,
+        35.83310003159568
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664059904,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "bottle-pca96-20261019-204511",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "9f938a9251bf5fd55f3f3310b6414b2dc1bc87ffb7c254598d751f173ffbe0c5",
+      "dataset": "bottle",
+      "method": "pca96",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "8e2b0ab8e3251ea6927de60f073a7054e6f9594ad89a8b5d634ae222dc406973",
+      "metrics": [
+        {
+          "image_AUROC": 1.0,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9841216206550598,
+          "pixel_F1Score": 0.698854386806488
+        }
+      ],
+      "fit_wall_seconds": 16.41914710000856,
+      "memory_bank_shape": [
+        1638,
+        96
+      ],
+      "memory_bank_bytes": 628992,
+      "projection_bytes": 148992,
+      "search_state_bytes": 777984,
+      "checkpoint_bytes": 12031229,
+      "latency_median_ms": 30.36185001838021,
+      "latency_samples_ms": [
+        31.95539995795116,
+        31.400099978782237,
+        29.81159999035299,
+        31.732100003864616,
+        30.913199996575713,
+        29.89310002885759,
+        33.4780000266619,
+        31.985599955078214,
+        29.70600000116974,
+        29.973400000017136,
+        32.523399975616485,
+        30.12690000468865,
+        29.483599995728582,
+        30.211900011636317,
+        30.062499979976565,
+        31.57910000300035,
+        31.04420000454411,
+        31.227500003296882,
+        30.765099974814802,
+        30.795699974987656,
+        30.043300008401275,
+        30.325200001243502,
+        29.600700014270842,
+        29.322899994440377,
+        28.585499967448413,
+        30.138399975840002,
+        31.222600024193525,
+        31.57869999995455,
+        30.398500035516918,
+        29.572100029326975
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664060416,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9720592498779297
+    },
+    {
+      "run_id": "bottle-pca192-20261019-204550",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "9f938a9251bf5fd55f3f3310b6414b2dc1bc87ffb7c254598d751f173ffbe0c5",
+      "dataset": "bottle",
+      "method": "pca192",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "8e2b0ab8e3251ea6927de60f073a7054e6f9594ad89a8b5d634ae222dc406973",
+      "metrics": [
+        {
+          "image_AUROC": 1.0000001192092896,
+          "image_F1Score": 1.0,
+          "pixel_AUROC": 0.9842411875724792,
+          "pixel_F1Score": 0.694730818271637
+        }
+      ],
+      "fit_wall_seconds": 16.13331659999676,
+      "memory_bank_shape": [
+        1638,
+        192
+      ],
+      "memory_bank_bytes": 1257984,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1554432,
+      "checkpoint_bytes": 12807677,
+      "latency_median_ms": 32.48110003187321,
+      "latency_samples_ms": [
+        34.32610002346337,
+        31.259400013368577,
+        30.725799966603518,
+        29.37900001415983,
+        32.425600045826286,
+        36.058500001672655,
+        31.288199999835342,
+        32.32749999733642,
+        39.18950003571808,
+        33.640700043179095,
+        35.60890001244843,
+        34.67239998281002,
+        33.41119998367503,
+        30.82009998615831,
+        32.53660001792014,
+        31.982999993488193,
+        32.1999000152573,
+        31.477300042752177,
+        32.78690000297502,
+        31.24859998933971,
+        38.666300009936094,
+        32.98809996340424,
+        36.30390000762418,
+        35.384399991016835,
+        36.581500025931746,
+        31.196299998555332,
+        30.894100025761873,
+        31.380899948999286,
+        32.72529999958351,
+        30.413499975111336
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664060416,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9937248229980469
+    },
+    {
+      "run_id": "cable-baseline-20261019-204631",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "588e24a940da15dd29304fb7b02cbaedd495935eb1ee7ba753af53b7cee54e82",
+      "dataset": "cable",
+      "method": "baseline",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "95cde542b0f5cfcf15d0d8827afffcc78e6614daed671cb42db32f8720d723da",
+      "metrics": [
+        {
+          "image_AUROC": 0.9812593460083008,
+          "image_F1Score": 0.9347826242446899,
+          "pixel_AUROC": 0.9870526790618896,
+          "pixel_F1Score": 0.695476770401001
+        }
+      ],
+      "fit_wall_seconds": 26.818012700008694,
+      "memory_bank_shape": [
+        1756,
+        384
+      ],
+      "memory_bank_bytes": 2697216,
+      "projection_bytes": 0,
+      "search_state_bytes": 2697216,
+      "checkpoint_bytes": 13949187,
+      "latency_median_ms": 32.79285001917742,
+      "latency_samples_ms": [
+        32.4294000165537,
+        32.440600043628365,
+        31.889800040517002,
+        30.903400038369,
+        31.357800005935133,
+        32.80119999544695,
+        32.592999981716275,
+        35.39809997892007,
+        30.349700013175607,
+        33.22920005302876,
+        33.105700043961406,
+        31.15700004855171,
+        32.28260000469163,
+        33.93630002392456,
+        32.784500042907894,
+        38.346100016497076,
+        34.45909998845309,
+        33.80330000072718,
+        36.070600035600364,
+        33.97420002147555,
+        34.356099960859865,
+        34.47820001747459,
+        32.56980003789067,
+        31.638599990401417,
+        30.221999972127378,
+        34.30529998149723,
+        34.36340001644567,
+        32.276100013405085,
+        29.854999971576035,
+        33.984199981205165
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712426496,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "cable-pca96-20261019-204729",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "588e24a940da15dd29304fb7b02cbaedd495935eb1ee7ba753af53b7cee54e82",
+      "dataset": "cable",
+      "method": "pca96",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "95cde542b0f5cfcf15d0d8827afffcc78e6614daed671cb42db32f8720d723da",
+      "metrics": [
+        {
+          "image_AUROC": 0.9677661061286926,
+          "image_F1Score": 0.9292929172515869,
+          "pixel_AUROC": 0.9843063950538635,
+          "pixel_F1Score": 0.685438334941864
+        }
+      ],
+      "fit_wall_seconds": 27.377136099967174,
+      "memory_bank_shape": [
+        1756,
+        96
+      ],
+      "memory_bank_bytes": 674304,
+      "projection_bytes": 148992,
+      "search_state_bytes": 823296,
+      "checkpoint_bytes": 12076541,
+      "latency_median_ms": 30.052749993046746,
+      "latency_samples_ms": [
+        31.94769995752722,
+        30.28419998008758,
+        30.225800001062453,
+        30.10039997752756,
+        28.33399997325614,
+        30.056099989451468,
+        28.73699995689094,
+        28.590200003236532,
+        29.287700017448515,
+        30.27240000665188,
+        28.531599964480847,
+        29.782700003124774,
+        30.536799982655793,
+        28.652300010435283,
+        30.16079997178167,
+        30.049399996642023,
+        28.134399966802448,
+        30.459799978416413,
+        26.186699979007244,
+        27.306600008159876,
+        34.242199966683984,
+        30.44539998518303,
+        28.695199987851083,
+        30.922900012228638,
+        31.526200007647276,
+        30.706799996551126,
+        29.912900005001575,
+        29.63540004566312,
+        27.933300007134676,
+        30.638700001873076
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712427008,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9156912565231323
+    },
+    {
+      "run_id": "cable-pca192-20261019-204828",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "588e24a940da15dd29304fb7b02cbaedd495935eb1ee7ba753af53b7cee54e82",
+      "dataset": "cable",
+      "method": "pca192",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "95cde542b0f5cfcf15d0d8827afffcc78e6614daed671cb42db32f8720d723da",
+      "metrics": [
+        {
+          "image_AUROC": 0.9737630486488342,
+          "image_F1Score": 0.9375,
+          "pixel_AUROC": 0.9863603711128235,
+          "pixel_F1Score": 0.6922579407691956
+        }
+      ],
+      "fit_wall_seconds": 26.424751900020055,
+      "memory_bank_shape": [
+        1756,
+        192
+      ],
+      "memory_bank_bytes": 1348608,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1645056,
+      "checkpoint_bytes": 12898301,
+      "latency_median_ms": 31.133400014368817,
+      "latency_samples_ms": [
+        31.22030000668019,
+        30.225800001062453,
+        33.49950001575053,
+        30.505199974868447,
+        33.87129999464378,
+        30.43659997638315,
+        28.71619997313246,
+        29.83210003003478,
+        32.03060000669211,
+        30.484499991871417,
+        30.969700019340962,
+        28.091899992432445,
+        32.82940003555268,
+        31.401699990965426,
+        28.96270004566759,
+        28.508000017609447,
+        32.93049999047071,
+        33.4024999756366,
+        35.65459995297715,
+        34.19710003072396,
+        30.398800037801266,
+        31.046500022057444,
+        30.694000015500933,
+        31.24250000109896,
+        30.366500024683774,
+        32.530900032725185,
+        32.10320003563538,
+        31.38760000001639,
+        30.581200029700994,
+        31.511199951637536
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712427008,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9751297235488892
+    },
+    {
+      "run_id": "capsule-baseline-20261019-204924",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "5b2b5f0c030f8ead743076af3ab3bda359e0cc4e3b7dda30848b4175ed9fd7ff",
+      "dataset": "capsule",
+      "method": "baseline",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "6525321a437174245b44b291933099fc795612ab6c1b06c85321a4ee538010df",
+      "metrics": [
+        {
+          "image_AUROC": 0.9712120294570923,
+          "image_F1Score": 0.954954981803894,
+          "pixel_AUROC": 0.9794093370437622,
+          "pixel_F1Score": 0.5086429119110107
+        }
+      ],
+      "fit_wall_seconds": 24.670188300020527,
+      "memory_bank_shape": [
+        1716,
+        384
+      ],
+      "memory_bank_bytes": 2635776,
+      "projection_bytes": 0,
+      "search_state_bytes": 2635776,
+      "checkpoint_bytes": 13887747,
+      "latency_median_ms": 34.7652499913238,
+      "latency_samples_ms": [
+        35.46079999068752,
+        34.22339999815449,
+        33.91939995344728,
+        36.10700002172962,
+        35.35839996766299,
+        34.57049996359274,
+        35.96150001976639,
+        33.66939997067675,
+        35.37200001301244,
+        36.202099989168346,
+        37.52940002596006,
+        34.66200002003461,
+        44.067999988328665,
+        41.84979997808114,
+        36.69629996875301,
+        31.480800011195242,
+        33.27349998289719,
+        36.20020003290847,
+        33.93809997942299,
+        33.12909998930991,
+        35.350199963431805,
+        34.59519997704774,
+        33.72170001966879,
+        36.262799985706806,
+        35.72469996288419,
+        32.833200006280094,
+        33.409199968446046,
+        34.86849996261299,
+        32.44320000521839,
+        33.5276999976486
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602240,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "capsule-pca96-20261019-205019",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "5b2b5f0c030f8ead743076af3ab3bda359e0cc4e3b7dda30848b4175ed9fd7ff",
+      "dataset": "capsule",
+      "method": "pca96",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "6525321a437174245b44b291933099fc795612ab6c1b06c85321a4ee538010df",
+      "metrics": [
+        {
+          "image_AUROC": 0.9621211290359497,
+          "image_F1Score": 0.9380530714988708,
+          "pixel_AUROC": 0.9789577722549438,
+          "pixel_F1Score": 0.4995833933353424
+        }
+      ],
+      "fit_wall_seconds": 24.041836799995508,
+      "memory_bank_shape": [
+        1716,
+        96
+      ],
+      "memory_bank_bytes": 658944,
+      "projection_bytes": 148992,
+      "search_state_bytes": 807936,
+      "checkpoint_bytes": 12061181,
+      "latency_median_ms": 29.937449988210574,
+      "latency_samples_ms": [
+        22.324200021103024,
+        29.995399992913008,
+        25.554099993314594,
+        30.135099950712174,
+        28.61869998741895,
+        29.02620000531897,
+        29.078699997626245,
+        28.84069998981431,
+        29.816099966410547,
+        29.155800002627075,
+        30.212399957235903,
+        31.12110000802204,
+        27.158799988683313,
+        28.628700005356222,
+        29.17890000389889,
+        30.612499976996332,
+        30.715900007635355,
+        33.67390000494197,
+        31.82179998839274,
+        33.287799975369126,
+        32.01560000889003,
+        32.393200031947345,
+        30.761499947402626,
+        29.308099998161197,
+        29.87949998350814,
+        30.8216999983415,
+        23.619199986569583,
+        27.367200003936887,
+        30.951399996411055,
+        30.576499993912876
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602752,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9676123261451721
+    },
+    {
+      "run_id": "capsule-pca192-20261019-205110",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "5b2b5f0c030f8ead743076af3ab3bda359e0cc4e3b7dda30848b4175ed9fd7ff",
+      "dataset": "capsule",
+      "method": "pca192",
+      "seed": 43,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "6525321a437174245b44b291933099fc795612ab6c1b06c85321a4ee538010df",
+      "metrics": [
+        {
+          "image_AUROC": 0.9757575392723083,
+          "image_F1Score": 0.9636363387107849,
+          "pixel_AUROC": 0.9805213809013367,
+          "pixel_F1Score": 0.5151897072792053
+        }
+      ],
+      "fit_wall_seconds": 23.737495200010017,
+      "memory_bank_shape": [
+        1716,
+        192
+      ],
+      "memory_bank_bytes": 1317888,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1614336,
+      "checkpoint_bytes": 12867581,
+      "latency_median_ms": 31.270099978428334,
+      "latency_samples_ms": [
+        31.266000005416572,
+        29.054899991024286,
+        31.435800017789006,
+        30.75660002650693,
+        29.742099985014647,
+        32.26490004453808,
+        29.997500008903444,
+        33.59220002312213,
+        30.185800045728683,
+        31.43520001322031,
+        25.966999994125217,
+        27.215799957048148,
+        28.79670000402257,
+        29.7728999867104,
+        31.846500001847744,
+        31.495300005190074,
+        30.948799976613373,
+        31.14939999068156,
+        32.950000022538006,
+        31.71960002509877,
+        32.231399964075536,
+        31.08099999371916,
+        32.25599997676909,
+        33.920699963346124,
+        33.667200012132525,
+        31.274199951440096,
+        32.201800029724836,
+        31.61160001764074,
+        29.96819996042177,
+        30.254999990575016
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602752,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9924584031105042
+    },
+    {
+      "run_id": "bottle-baseline-20261019-205201",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "ffb7851c910c0cb7e4e78b603cc08bc38cc87524a88649cf2492986109814387",
+      "dataset": "bottle",
+      "method": "baseline",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "01a20ed64ac10fc4a244e8bcc4f9a4161b9698703d0db3dc34704ea21b0f1445",
+      "metrics": [
+        {
+          "image_AUROC": 1.0,
+          "image_F1Score": 0.9841269850730896,
+          "pixel_AUROC": 0.9809044599533081,
+          "pixel_F1Score": 0.6881973147392273
+        }
+      ],
+      "fit_wall_seconds": 15.279030900041107,
+      "memory_bank_shape": [
+        1638,
+        384
+      ],
+      "memory_bank_bytes": 2515968,
+      "projection_bytes": 0,
+      "search_state_bytes": 2515968,
+      "checkpoint_bytes": 13767939,
+      "latency_median_ms": 31.818099989322945,
+      "latency_samples_ms": [
+        32.407900027465075,
+        33.59520004596561,
+        30.851099989376962,
+        34.268599993083626,
+        33.90380000928417,
+        30.502299952786416,
+        31.277599977329373,
+        26.75350004574284,
+        32.946999999694526,
+        32.0637000259012,
+        32.64300001319498,
+        31.41280001727864,
+        32.756200002040714,
+        34.38710002228618,
+        32.49500005040318,
+        34.38680002000183,
+        31.730899994727224,
+        33.71499996865168,
+        28.966200014110655,
+        31.713400036096573,
+        27.66300004441291,
+        31.905299983918667,
+        31.59069997491315,
+        32.57300000404939,
+        29.511000029742718,
+        29.18910002335906,
+        26.294899987988174,
+        32.7073999796994,
+        31.485099985729903,
+        29.0779999922961
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664059904,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "bottle-pca96-20261019-205237",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "ffb7851c910c0cb7e4e78b603cc08bc38cc87524a88649cf2492986109814387",
+      "dataset": "bottle",
+      "method": "pca96",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "01a20ed64ac10fc4a244e8bcc4f9a4161b9698703d0db3dc34704ea21b0f1445",
+      "metrics": [
+        {
+          "image_AUROC": 1.0,
+          "image_F1Score": 0.9841269850730896,
+          "pixel_AUROC": 0.9801256656646729,
+          "pixel_F1Score": 0.6823455691337585
+        }
+      ],
+      "fit_wall_seconds": 15.445885599998292,
+      "memory_bank_shape": [
+        1638,
+        96
+      ],
+      "memory_bank_bytes": 628992,
+      "projection_bytes": 148992,
+      "search_state_bytes": 777984,
+      "checkpoint_bytes": 12031229,
+      "latency_median_ms": 29.818500013789162,
+      "latency_samples_ms": [
+        29.191600042395294,
+        28.84109999286011,
+        28.970699990168214,
+        30.692600004840642,
+        31.429899972863495,
+        32.20649994909763,
+        25.453100039158016,
+        30.077400035224855,
+        28.49290001904592,
+        29.786499973852187,
+        30.849199974909425,
+        27.576700027566403,
+        29.80990003561601,
+        30.29999998398125,
+        31.174699950497597,
+        33.501300029456615,
+        35.44010000769049,
+        30.79649998107925,
+        31.135099998209625,
+        28.797299950383604,
+        26.24829998239875,
+        30.086199985817075,
+        29.488900036085397,
+        32.068400003481656,
+        28.57119997497648,
+        29.10460002021864,
+        25.17669997178018,
+        28.924399986863136,
+        32.025499967858195,
+        29.827099991962314
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664060416,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9720680713653564
+    },
+    {
+      "run_id": "bottle-pca192-20261019-205313",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "ffb7851c910c0cb7e4e78b603cc08bc38cc87524a88649cf2492986109814387",
+      "dataset": "bottle",
+      "method": "pca192",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 209,
+        "val": 41,
+        "test": 42
+      },
+      "split_sha256": "01a20ed64ac10fc4a244e8bcc4f9a4161b9698703d0db3dc34704ea21b0f1445",
+      "metrics": [
+        {
+          "image_AUROC": 1.0,
+          "image_F1Score": 0.9841269850730896,
+          "pixel_AUROC": 0.9809374809265137,
+          "pixel_F1Score": 0.6914873123168945
+        }
+      ],
+      "fit_wall_seconds": 15.270796800032258,
+      "memory_bank_shape": [
+        1638,
+        192
+      ],
+      "memory_bank_bytes": 1257984,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1554432,
+      "checkpoint_bytes": 12807677,
+      "latency_median_ms": 31.06264999951236,
+      "latency_samples_ms": [
+        31.938600004650652,
+        32.16309996787459,
+        32.038900011684746,
+        29.594099964015186,
+        31.484799983445555,
+        31.56690002651885,
+        24.88199999788776,
+        29.353199992328882,
+        31.21159999864176,
+        31.374800018966198,
+        31.6041000187397,
+        32.3171999771148,
+        28.766100003849715,
+        30.519300024025142,
+        27.846199984196573,
+        28.114499989897013,
+        26.26309997867793,
+        30.520199972670525,
+        29.243099968880415,
+        31.197700009215623,
+        31.04410000378266,
+        29.112800024449825,
+        29.501200013328344,
+        31.96100000059232,
+        31.08119999524206,
+        32.089199987240136,
+        35.44539998983964,
+        29.018300003372133,
+        31.738299992866814,
+        24.56930000334978
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 664060416,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9937005043029785
+    },
+    {
+      "run_id": "cable-baseline-20261019-205349",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "10c1431e3ca6ecaeca26d6bb6b2d17abe86e667afbe258824dc741d2f0059ef3",
+      "dataset": "cable",
+      "method": "baseline",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "bc4e82eb27fba53e687f3d58c9a70dd2e580e7f6f739e29b0293a3243da41d67",
+      "metrics": [
+        {
+          "image_AUROC": 0.9940029978752136,
+          "image_F1Score": 0.9583333134651184,
+          "pixel_AUROC": 0.9870657324790955,
+          "pixel_F1Score": 0.6984590888023376
+        }
+      ],
+      "fit_wall_seconds": 25.493775499984622,
+      "memory_bank_shape": [
+        1756,
+        384
+      ],
+      "memory_bank_bytes": 2697216,
+      "projection_bytes": 0,
+      "search_state_bytes": 2697216,
+      "checkpoint_bytes": 13949187,
+      "latency_median_ms": 32.425799989141524,
+      "latency_samples_ms": [
+        30.683299992233515,
+        33.17710000555962,
+        29.1846000473015,
+        30.75209999224171,
+        32.563599990680814,
+        32.40540000842884,
+        32.446199969854206,
+        35.402100009378046,
+        33.864500001072884,
+        32.92269998928532,
+        29.5194000354968,
+        26.55619999859482,
+        32.06380002666265,
+        33.73060002923012,
+        35.03099997760728,
+        27.0924000069499,
+        33.76580000622198,
+        31.03230003034696,
+        30.22350004175678,
+        32.92990004410967,
+        29.15080002276227,
+        23.49679998587817,
+        32.61279995786026,
+        33.23210001690313,
+        31.146599969360977,
+        36.06060001766309,
+        24.253000039607286,
+        30.629600048996508,
+        34.54650001367554,
+        32.92560001136735
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712426496,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "cable-pca96-20261019-205444",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "10c1431e3ca6ecaeca26d6bb6b2d17abe86e667afbe258824dc741d2f0059ef3",
+      "dataset": "cable",
+      "method": "pca96",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "bc4e82eb27fba53e687f3d58c9a70dd2e580e7f6f739e29b0293a3243da41d67",
+      "metrics": [
+        {
+          "image_AUROC": 0.9805097579956055,
+          "image_F1Score": 0.9347826242446899,
+          "pixel_AUROC": 0.985701858997345,
+          "pixel_F1Score": 0.6971237063407898
+        }
+      ],
+      "fit_wall_seconds": 24.88254910003161,
+      "memory_bank_shape": [
+        1756,
+        96
+      ],
+      "memory_bank_bytes": 674304,
+      "projection_bytes": 148992,
+      "search_state_bytes": 823296,
+      "checkpoint_bytes": 12076541,
+      "latency_median_ms": 36.12074998090975,
+      "latency_samples_ms": [
+        51.01799999829382,
+        46.10310000134632,
+        41.930100007448345,
+        36.50479996576905,
+        39.25029997481033,
+        48.86049998458475,
+        43.22180000599474,
+        43.03199995774776,
+        40.78989999834448,
+        45.45259999576956,
+        41.82240000227466,
+        34.88289995584637,
+        36.71880002366379,
+        45.5478000221774,
+        33.158999984152615,
+        35.73669999605045,
+        38.04490005131811,
+        29.325700015760958,
+        33.37780002038926,
+        32.45429997332394,
+        29.861000017262995,
+        36.79380001267418,
+        35.487999964971095,
+        31.283600023016334,
+        30.73910000966862,
+        32.29709999868646,
+        26.734799961559474,
+        28.7681000190787,
+        28.741000045556575,
+        31.345900031737983
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712427008,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9161999225616455
+    },
+    {
+      "run_id": "cable-pca192-20261019-205540",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "10c1431e3ca6ecaeca26d6bb6b2d17abe86e667afbe258824dc741d2f0059ef3",
+      "dataset": "cable",
+      "method": "pca192",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 224,
+        "val": 75,
+        "test": 75
+      },
+      "split_sha256": "bc4e82eb27fba53e687f3d58c9a70dd2e580e7f6f739e29b0293a3243da41d67",
+      "metrics": [
+        {
+          "image_AUROC": 0.9902548789978027,
+          "image_F1Score": 0.9484536051750183,
+          "pixel_AUROC": 0.9868760704994202,
+          "pixel_F1Score": 0.7026017308235168
+        }
+      ],
+      "fit_wall_seconds": 25.700047000020277,
+      "memory_bank_shape": [
+        1756,
+        192
+      ],
+      "memory_bank_bytes": 1348608,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1645056,
+      "checkpoint_bytes": 12898301,
+      "latency_median_ms": 28.77215002081357,
+      "latency_samples_ms": [
+        30.66920000128448,
+        25.8940999628976,
+        23.392400005832314,
+        22.407200012821704,
+        31.289700011257082,
+        22.13789999950677,
+        24.247399996966124,
+        32.299900020007044,
+        32.64290001243353,
+        30.073300004005432,
+        28.471300029195845,
+        29.073000012431294,
+        22.532599978148937,
+        21.551900019403547,
+        27.998300036415458,
+        29.583499999716878,
+        24.6540000080131,
+        27.943400025833398,
+        29.40850000595674,
+        27.739599987398833,
+        30.26609995868057,
+        30.677700007800013,
+        26.784799993038177,
+        23.97229999769479,
+        24.32780002709478,
+        32.14809997007251,
+        34.75950000574812,
+        35.19410005537793,
+        30.71510000154376,
+        29.611999983899295
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 712427008,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9753022789955139
+    },
+    {
+      "run_id": "capsule-baseline-20261019-205636",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "4046404c8033540d958f82b0c8368b36503569a8c07cf066039f3d022b5c56c9",
+      "dataset": "capsule",
+      "method": "baseline",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "c09ed1312739aaf74a7b486def196420fcd20f5eb0a92013b1232868519a4af6",
+      "metrics": [
+        {
+          "image_AUROC": 0.9151514768600464,
+          "image_F1Score": 0.9369369149208069,
+          "pixel_AUROC": 0.9852251410484314,
+          "pixel_F1Score": 0.4617849290370941
+        }
+      ],
+      "fit_wall_seconds": 25.453193699999247,
+      "memory_bank_shape": [
+        1716,
+        384
+      ],
+      "memory_bank_bytes": 2635776,
+      "projection_bytes": 0,
+      "search_state_bytes": 2635776,
+      "checkpoint_bytes": 13887747,
+      "latency_median_ms": 29.561600007582456,
+      "latency_samples_ms": [
+        32.1688000112772,
+        31.13590000430122,
+        32.78100001625717,
+        29.337900050450116,
+        29.78480001911521,
+        32.188399985898286,
+        29.338399996049702,
+        24.075200024526566,
+        34.53429997898638,
+        32.19090000493452,
+        29.8797000432387,
+        33.181299979332834,
+        32.382700010202825,
+        23.72660004766658,
+        25.717100012116134,
+        26.84950002003461,
+        26.388300000689924,
+        28.074599977117032,
+        32.951700035482645,
+        26.697900029830635,
+        27.056399965658784,
+        28.469800017774105,
+        31.391800031997263,
+        27.453199960291386,
+        27.58140000514686,
+        27.58900000480935,
+        31.61590005038306,
+        24.933100037742406,
+        30.763700022362173,
+        33.416599966585636
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602240,
+      "pca_fit_data": null,
+      "retained_variance": null
+    },
+    {
+      "run_id": "capsule-pca96-20261019-205729",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "4046404c8033540d958f82b0c8368b36503569a8c07cf066039f3d022b5c56c9",
+      "dataset": "capsule",
+      "method": "pca96",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "c09ed1312739aaf74a7b486def196420fcd20f5eb0a92013b1232868519a4af6",
+      "metrics": [
+        {
+          "image_AUROC": 0.9045454859733582,
+          "image_F1Score": 0.9380530714988708,
+          "pixel_AUROC": 0.9859076142311096,
+          "pixel_F1Score": 0.4623550772666931
+        }
+      ],
+      "fit_wall_seconds": 23.547254399978556,
+      "memory_bank_shape": [
+        1716,
+        96
+      ],
+      "memory_bank_bytes": 658944,
+      "projection_bytes": 148992,
+      "search_state_bytes": 807936,
+      "checkpoint_bytes": 12061181,
+      "latency_median_ms": 30.990500032203272,
+      "latency_samples_ms": [
+        33.15529995597899,
+        33.510199980810285,
+        36.9702999596484,
+        33.886999997776,
+        31.490899971686304,
+        31.52389999013394,
+        29.130499984603375,
+        30.217599996831268,
+        32.94629999436438,
+        31.82660002494231,
+        31.263899989426136,
+        30.119699949864298,
+        30.748300021514297,
+        29.972300049848855,
+        33.61080004833639,
+        31.61440003896132,
+        32.52150001935661,
+        31.38030000263825,
+        31.232700042892247,
+        30.182300019077957,
+        30.13999998802319,
+        30.34749999642372,
+        30.313099967315793,
+        28.67799997329712,
+        32.71200001472607,
+        30.7361000450328,
+        29.200399992987514,
+        30.06309998454526,
+        30.684500001370907,
+        30.12389998184517
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602752,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9673179984092712
+    },
+    {
+      "run_id": "capsule-pca192-20261019-205821",
+      "purpose": "course experiment; custom disjoint validation/test protocol, not official full-test benchmark",
+      "protocol_version": "paired-coreset-v2",
+      "course_code_sha256": "0c9407bf33b1e7fbb5b074d248bad8077cbcbb7c91010d5d412b3600bfd9c1a6",
+      "coreset_sha256": "4046404c8033540d958f82b0c8368b36503569a8c07cf066039f3d022b5c56c9",
+      "dataset": "capsule",
+      "method": "pca192",
+      "seed": 44,
+      "device": "cuda",
+      "upstream_commit": "fcf9ffa7382c1bfdd85e65bf7b2ecae0f6a9c1af",
+      "code_commit": "b78a4309a275455e722c8fb482213d90b9497f1b",
+      "backbone": "resnet18.tv_in1k",
+      "image_size": [
+        224,
+        224
+      ],
+      "batch_size": 1,
+      "coreset_sampling_ratio": 0.01,
+      "num_neighbors": 9,
+      "val_split_ratio": 0.5,
+      "split_counts": {
+        "train": 219,
+        "val": 65,
+        "test": 67
+      },
+      "split_sha256": "c09ed1312739aaf74a7b486def196420fcd20f5eb0a92013b1232868519a4af6",
+      "metrics": [
+        {
+          "image_AUROC": 0.9121211767196655,
+          "image_F1Score": 0.9272727370262146,
+          "pixel_AUROC": 0.9862221479415894,
+          "pixel_F1Score": 0.4756222367286682
+        }
+      ],
+      "fit_wall_seconds": 24.96486470004311,
+      "memory_bank_shape": [
+        1716,
+        192
+      ],
+      "memory_bank_bytes": 1317888,
+      "projection_bytes": 296448,
+      "search_state_bytes": 1614336,
+      "checkpoint_bytes": 12867581,
+      "latency_median_ms": 32.076849980512634,
+      "latency_samples_ms": [
+        34.344199986662716,
+        34.745800017844886,
+        35.668899945449084,
+        35.283800039906055,
+        33.5159000242129,
+        37.009600026067346,
+        35.94999999040738,
+        31.3183999969624,
+        33.95800001453608,
+        33.99359999457374,
+        29.6556000248529,
+        28.841199993621558,
+        30.452700040768832,
+        29.75500002503395,
+        30.87489999597892,
+        31.427400012034923,
+        31.62779996637255,
+        33.53559999959543,
+        29.96690000873059,
+        31.923100003041327,
+        34.49600003659725,
+        32.209600030910224,
+        30.884599953424186,
+        31.308699981309474,
+        32.53500000573695,
+        30.299299978651106,
+        32.110099971760064,
+        31.918899971060455,
+        32.0435999892652,
+        32.39559999201447
+      ],
+      "timing_note": "batch=1; 10 warmups + 30 synchronized forwards of first test tensor; includes backbone, projection, kNN, raw map; excludes IO, preprocessing, calibrated postprocessing and rendering",
+      "peak_torch_cuda_allocated_bytes": 694602752,
+      "pca_fit_data": "normal training coreset only",
+      "retained_variance": 0.9924228191375732
+    }
+  ]
+}

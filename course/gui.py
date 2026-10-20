@@ -163,6 +163,15 @@ class Handler(BaseHTTPRequestHandler):
                 for file in sorted(OUTPUT.glob("prediction-*/predictions.json"), reverse=True)[:5]:
                     prediction.append({"id": file.parent.name, "records": read_json(file, []), "images": images(file.parent)})
                 return self.send({"token": TOKEN, "runs": runs(), "datasets": datasets(), "job": job_state(), "predictions": prediction})
+            if parsed.path == "/api/summary":
+                from summarize_experiments import collect_records, summarize
+                device = params.get("device", ["cuda"])[0]
+                if device not in ("cuda", "cpu"):
+                    raise ValueError("Invalid device")
+                try:
+                    return self.send(summarize(collect_records(device)))
+                except ValueError as error:
+                    return self.send({"error": str(error)}, status=409)
             if parsed.path == "/api/run":
                 path = local_run(params.get("id", [""])[0])
                 return self.send({"metrics": read_json(path / "metrics.json", {}), "images": images(path), "splits": read_json(path / "split_manifest.json", {})})

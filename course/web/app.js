@@ -26,7 +26,7 @@ function comparison() {
  if(!base){$('comparison').innerHTML='尚无经相同特征库校验的新版本基线。旧记录保留用于查看，请重新运行同配置 baseline 与 PCA。';return;}
  const a=base.metrics[0],b=opt.metrics[0];
  function bars(label,x,y,text,unit,lower=false){const max=Math.max(x,y,1e-9);const delta=y-x;return `<div class="compare-row"><div class="compare-row-title"><span>${label}</span><span class="delta ${(lower?delta>0:delta<0)?'bad':''}">${text}</span></div><div class="compare-note">原始 ${unit(x)} <span>→</span> ${opt.method} ${unit(y)}</div><div class="compare-bar"><i style="width:${x/max*100}%"></i></div><div class="compare-bar"><i class="optimized" style="width:${y/max*100}%"></i></div></div>`;}
- let html=bars('检索状态占用（特征库 + 投影）',base.search_state_bytes,opt.search_state_bytes,`${((1-opt.search_state_bytes/base.search_state_bytes)*100).toFixed(1)}% 减少`,size,true);
+ let html=bars('检索状态占用（特征库 + 投影）',base.search_state_bytes,opt.search_state_bytes,`${Math.abs((1-opt.search_state_bytes/base.search_state_bytes)*100).toFixed(1)}% ${opt.search_state_bytes<=base.search_state_bytes?'减少':'增加'}`,size,true);
  html+=bars('图像 AUROC',a.image_AUROC,b.image_AUROC,`${((b.image_AUROC-a.image_AUROC)*100).toFixed(2)} 个百分点`,fmt);
  html+=bars('像素 AUROC',a.pixel_AUROC,b.pixel_AUROC,`${((b.pixel_AUROC-a.pixel_AUROC)*100).toFixed(2)} 个百分点`,fmt);
  html+=`<p class="compare-note">图像 F1：${fmt(a.image_F1Score)} → ${fmt(b.image_F1Score)}<br>单图模型前向中位耗时：${base.latency_median_ms.toFixed(2)} → ${opt.latency_median_ms.toFixed(2)} ms（不含读图、预处理和显示；单次运行会受负载影响）。<br>投影额外占用：${size(opt.projection_bytes)}。模型文件：${size(base.checkpoint_bytes)} → ${size(opt.checkpoint_bytes)}。<br>种子 ${opt.seed} · 训练 ${opt.split_counts.train} / 验证 ${opt.split_counts.val} / 测试 ${opt.split_counts.test}。<br>当前仅展示这组实验，不能推断所有类别或工业场景的效果。</p>`;
@@ -47,7 +47,15 @@ function render() {
  const job=state.job; const running=job?.status==='running'; ['train','predict','download'].forEach(id=>$(id).disabled=running);
  if(job){$('job-panel').classList.remove('hidden');$('job-title').textContent=job.label;const names={running:'正在运行',completed:'已完成',failed:'运行失败，请查看日志'};$('job-state').textContent=names[job.status];$('job-log').textContent=job.log;if(previousJob==='running'&&!running){toast(names[job.status]);if(job.task==='predict')page('detect');}previousJob=job.status;}
 }
-async function refresh(){if(pollBusy)return;pollBusy=true;try{state=await api('/api/state');$('connection-error').classList.add('hidden');render();}catch(e){$('connection-error').classList.remove('hidden');}finally{pollBusy=false;}}
+function renderSummary(summary) {
+ $('summary-status').textContent=`${summary.complete?'完整矩阵已完成':'实验尚未全部完成'} · ${summary.available_runs} / 27 组记录 · ${summary.matched_groups} / 9 组完整配对`;
+ const stat=s=>`${s.mean.toFixed(4)} ± ${s.std==null?'—':s.std.toFixed(4)}`;
+ $('summary-table').innerHTML=summary.rows.map(r=>{
+  const s=r.statistics, change=r.paired_changes.image_AUROC_delta_pp.mean;
+  return `<tr><td>${esc(r.dataset)}<small>${esc(r.method)}</small></td><td>${r.n}</td><td>${stat(s.image_AUROC)}</td><td>${stat(s.image_F1Score)}</td><td>${stat(s.pixel_AUROC)}</td><td>${r.method==='baseline'?'基线':r.paired_changes.search_state_reduction_percent.mean.toFixed(2)+'%'}</td><td class="delta ${change<0?'bad':''}">${r.method==='baseline'?'—':(change>=0?'+':'')+change.toFixed(3)+' pp'}</td></tr>`;
+ }).join('')||'<tr><td colspan="7">尚无完整配对：同类别、同种子需要 baseline、pca96 和 pca192 三组结果。</td></tr>';
+}
+async function refresh(){if(pollBusy)return;pollBusy=true;try{state=await api('/api/state');$('connection-error').classList.add('hidden');render();try{renderSummary(await api('/api/summary'));}catch(error){$('summary-status').textContent='汇总不可用：'+error.message;$('summary-table').innerHTML='';}}catch(e){$('connection-error').classList.remove('hidden');}finally{pollBusy=false;}}
 async function submit(body){try{await api('/api/job',body);toast('任务已启动，日志显示在页面下方');await refresh();$('job-panel').scrollIntoView({behavior:'smooth',block:'nearest'});}catch(e){toast(e.message);}}
 $('train').onclick=()=>submit({task:'train',dataset:$('train-dataset').value,method:$('train-method').value,seed:Number($('train-seed').value),device:$('train-device').value});
 $('download').onclick=()=>submit({task:'download'});
