@@ -1,0 +1,281 @@
+{
+  "complete": true,
+  "verification": {
+    "complete": true,
+    "runs": [
+      {
+        "source_run": "bottle-baseline-20261019-092413",
+        "dataset": "bottle",
+        "seed": 42,
+        "test_evaluations": 42,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 1.0,
+            "image_F1Score": 1.0,
+            "pixel_AUROC": 0.9792450070381165,
+            "pixel_F1Score": 0.6930747032165527
+          }
+        ],
+        "checkpoint_sha256": "90a38c343e70b105c8c262d2e16d38a9bacbd1f4795510463fb85a2de66a6461"
+      },
+      {
+        "source_run": "cable-baseline-20261019-092534",
+        "dataset": "cable",
+        "seed": 42,
+        "test_evaluations": 75,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 0.9767616391181946,
+            "image_F1Score": 0.9213483333587646,
+            "pixel_AUROC": 0.9822849035263062,
+            "pixel_F1Score": 0.6404553055763245
+          }
+        ],
+        "checkpoint_sha256": "7ff549c819e6de4449d1c2d6c6d4b8aa5a9ad7f134100da2852fb07de9813dc3"
+      },
+      {
+        "source_run": "capsule-baseline-20261019-092724",
+        "dataset": "capsule",
+        "seed": 42,
+        "test_evaluations": 67,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 0.9696969389915466,
+            "image_F1Score": 0.9821428656578064,
+            "pixel_AUROC": 0.985459566116333,
+            "pixel_F1Score": 0.5044711232185364
+          }
+        ],
+        "checkpoint_sha256": "25d797c5e516b2a2c4cffe0179abdae27ba5f2ef707e8fcf27a717f1cb8a508e"
+      },
+      {
+        "source_run": "bottle-baseline-20261019-204429",
+        "dataset": "bottle",
+        "seed": 43,
+        "test_evaluations": 42,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 1.0,
+            "image_F1Score": 1.0,
+            "pixel_AUROC": 0.9836262464523315,
+            "pixel_F1Score": 0.6842375993728638
+          }
+        ],
+        "checkpoint_sha256": "95393c76c9d124dbd893bce30d74563025dabc3917fe7be8feea2ca3c58494fc"
+      },
+      {
+        "source_run": "cable-baseline-20261019-204631",
+        "dataset": "cable",
+        "seed": 43,
+        "test_evaluations": 75,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 0.9812593460083008,
+            "image_F1Score": 0.9347826242446899,
+            "pixel_AUROC": 0.9870526790618896,
+            "pixel_F1Score": 0.695476770401001
+          }
+        ],
+        "checkpoint_sha256": "4963d276a126de61f0596d00f83ec4939030af572eef3f1259979edd89acd6b5"
+      },
+      {
+        "source_run": "capsule-baseline-20261019-204924",
+        "dataset": "capsule",
+        "seed": 43,
+        "test_evaluations": 67,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 0.9712120294570923,
+            "image_F1Score": 0.954954981803894,
+            "pixel_AUROC": 0.9794093370437622,
+            "pixel_F1Score": 0.5086429119110107
+          }
+        ],
+        "checkpoint_sha256": "243d15996196e67b3b01097450434f89a569de88ce27bf4c451f1a7676d60191"
+      },
+      {
+        "source_run": "bottle-baseline-20261019-205201",
+        "dataset": "bottle",
+        "seed": 44,
+        "test_evaluations": 42,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 1.0,
+            "image_F1Score": 0.9841269850730896,
+            "pixel_AUROC": 0.9809044599533081,
+            "pixel_F1Score": 0.6881973147392273
+          }
+        ],
+        "checkpoint_sha256": "d1335f324cf87d036fdf9d2a9dafee5bd41f2cc8b7175a6d2db3bc21c6d1a5ff"
+      },
+      {
+        "source_run": "cable-baseline-20261019-205349",
+        "dataset": "cable",
+        "seed": 44,
+        "test_evaluations": 75,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 0.9940029978752136,
+            "image_F1Score": 0.9583333134651184,
+            "pixel_AUROC": 0.9870657324790955,
+            "pixel_F1Score": 0.6984590888023376
+          }
+        ],
+        "checkpoint_sha256": "9b37461d467496bcdc36202da1a826c4ffab7d01549236ef0b95992e666718d7"
+      },
+      {
+        "source_run": "capsule-baseline-20261019-205636",
+        "dataset": "capsule",
+        "seed": 44,
+        "test_evaluations": 67,
+        "raw_scores_and_maps_bit_exact": true,
+        "single_image_postprocessed_outputs_bit_exact": true,
+        "four_metrics_identical": true,
+        "metrics": [
+          {
+            "image_AUROC": 0.9151514768600464,
+            "image_F1Score": 0.9369369149208069,
+            "pixel_AUROC": 0.9852251410484314,
+            "pixel_F1Score": 0.4617849290370941
+          }
+        ],
+        "checkpoint_sha256": "e86eec60ef04b3c1fc59a3261e0e51a2ea0ff4ebcac1f853d24a9ce4442d79da"
+      }
+    ],
+    "protocol": "same-checkpoint-session-reuse-v1",
+    "test_evaluations": 552
+  },
+  "benchmark": {
+    "complete": true,
+    "baseline_commit": "ce49ccfa7a26393aaeb8393ad9684e557ecaa52f",
+    "original_predict_sha256": "b0fbc3db7dfbd412f80b98afa307f8fb2605162a04281258ae966d353fc82df2",
+    "rounds_per_category": 3,
+    "timing_scope": "client request through saved prediction and rendered PNG; excludes GUI polling and upload",
+    "categories": [
+      {
+        "dataset": "bottle",
+        "source_run": "bottle-baseline-20261019-092413",
+        "worker_first_request_seconds": 14.736785199999986,
+        "original_median_seconds": 15.037870500000054,
+        "warm_median_seconds": 0.3146506999999019,
+        "latency_reduction_percent": 97.9076113203668,
+        "speedup": 47.79226774326179,
+        "samples": [
+          {
+            "image": "course/data/MVTecAD/bottle/test/broken_large/002.png",
+            "original_seconds": 15.037870500000054,
+            "warm_seconds": 0.3155346000000918,
+            "records_and_png_bytes_identical": true
+          },
+          {
+            "image": "course/data/MVTecAD/bottle/test/broken_small/020.png",
+            "original_seconds": 14.919657899999947,
+            "warm_seconds": 0.3146506999999019,
+            "records_and_png_bytes_identical": true
+          },
+          {
+            "image": "course/data/MVTecAD/bottle/test/good/018.png",
+            "original_seconds": 15.30358739999997,
+            "warm_seconds": 0.29069970000000467,
+            "records_and_png_bytes_identical": true
+          }
+        ]
+      },
+      {
+        "dataset": "cable",
+        "source_run": "cable-baseline-20261019-092534",
+        "worker_first_request_seconds": 13.146363000000065,
+        "original_median_seconds": 14.745278299999882,
+        "warm_median_seconds": 0.33615129999998317,
+        "latency_reduction_percent": 97.72027836192156,
+        "speedup": 43.86500453813691,
+        "samples": [
+          {
+            "image": "course/data/MVTecAD/cable/test/bent_wire/001.png",
+            "original_seconds": 14.295563700000002,
+            "warm_seconds": 0.33615129999998317,
+            "records_and_png_bytes_identical": true
+          },
+          {
+            "image": "course/data/MVTecAD/cable/test/good/012.png",
+            "original_seconds": 14.916033799999923,
+            "warm_seconds": 0.3464228999998795,
+            "records_and_png_bytes_identical": true
+          },
+          {
+            "image": "course/data/MVTecAD/cable/test/poke_insulation/009.png",
+            "original_seconds": 14.745278299999882,
+            "warm_seconds": 0.3263904000000366,
+            "records_and_png_bytes_identical": true
+          }
+        ]
+      },
+      {
+        "dataset": "capsule",
+        "source_run": "capsule-baseline-20261019-092724",
+        "worker_first_request_seconds": 14.67624539999997,
+        "original_median_seconds": 14.977511800000002,
+        "warm_median_seconds": 0.36676879999981793,
+        "latency_reduction_percent": 97.55120339815177,
+        "speedup": 40.83638466523717,
+        "samples": [
+          {
+            "image": "course/data/MVTecAD/capsule/test/crack/002.png",
+            "original_seconds": 14.977511800000002,
+            "warm_seconds": 0.3429059000000052,
+            "records_and_png_bytes_identical": true
+          },
+          {
+            "image": "course/data/MVTecAD/capsule/test/poke/005.png",
+            "original_seconds": 14.534678799999938,
+            "warm_seconds": 0.36676879999981793,
+            "records_and_png_bytes_identical": true
+          },
+          {
+            "image": "course/data/MVTecAD/capsule/test/squeeze/017.png",
+            "original_seconds": 17.014408199999934,
+            "warm_seconds": 0.3865890000001855,
+            "records_and_png_bytes_identical": true
+          }
+        ]
+      }
+    ]
+  },
+  "source_lf_sha256": {
+    "predict.py": "7001cba6b38851e2fb7131aedcad5933f44b13beb90e67fcf3c0c3365322a347",
+    "prediction_worker.py": "6af596551872a7e2b8b756b52a674a18059b50986854e636e1b98bb4f47fa549",
+    "audit_session.py": "5c099d2593f05194590f5758dc919a3f063b0d09f8575b3a7c8d5de10f10e318"
+  },
+  "limits": [
+    "Same RTX 3050 Laptop 4 GB, CUDA, batch size 1; 3 timings per category, seed 42.",
+    "Warm requests reuse one process and checkpoint; first request remains cold.",
+    "Latency includes rendering and JSON output, excludes browser upload and polling.",
+    "552 evaluations contain repeated images across seeds, not 552 distinct images.",
+    "Resident process retains RAM/CUDA resources until 120 s idle, training, or GUI shutdown.",
+    "No claim of faster neural-network forward pass or reduced inference memory."
+  ]
+}

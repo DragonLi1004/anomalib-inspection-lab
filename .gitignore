@@ -208,3 +208,7 @@ course/results/*
 !course/results/lossless_metrics.csv
 !course/results/lossless_comparison.png
 !course/results/search_exploration.json
+
+!course/results/session_metrics.json
+!course/results/session_metrics.csv
+!course/results/session_comparison.png

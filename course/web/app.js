@@ -43,9 +43,9 @@ function render() {
  $('runs-table').innerHTML=state.runs.slice(0,12).map(r=>`<tr><td>${esc(r.dataset)}<small>${esc(r.id.slice(-15))} · seed ${r.seed}</small></td><td><span class="method-chip">${esc(r.method)}</span></td><td>${r.split_counts.train} / ${r.split_counts.val} / ${r.split_counts.test}</td><td>${fmt(r.metrics[0].image_AUROC)}</td><td>${fmt(r.metrics[0].image_F1Score)}</td><td>${fmt(r.metrics[0].pixel_AUROC)}</td><td>${size(r.memory_bank_bytes)}</td></tr>`).join('')||'<tr><td colspan="7">暂无实验，先运行原始基线。</td></tr>';
  if(selectedRun!==$('preview-run').value)loadRun();
  comparison();
- if(state.predictions.length){$('prediction-results').classList.remove('empty');$('prediction-results').innerHTML=state.predictions.slice(0,3).map(p=>`<div class="prediction-card">${p.records.map(r=>`<span class="result-badge ${r.anomalous?'alert':''}">${r.anomalous?'检测到异常':'未达到异常阈值'}</span> · 得分 ${Number(r.anomaly_score).toFixed(4)}`).join('')}<p>${esc(p.id)}${p.records[0]?.model_run?' · '+esc(p.records[0].model_run):''}</p>${p.images.map(path=>`<img src="${imageURL(path)}" alt="单图检测结果和缺陷热力图" loading="lazy">`).join('')}</div>`).join('');}
+ if(state.predictions.length){$('prediction-results').classList.remove('empty');$('prediction-results').innerHTML=state.predictions.slice(0,3).map(p=>`<div class="prediction-card">${p.records.map(r=>`<span class="result-badge ${r.anomalous?'alert':''}">${r.anomalous?'检测到异常':'未达到异常阈值'}</span> · 得分 ${Number(r.anomaly_score).toFixed(4)}`).join('')}<p>${esc(p.id)}${p.records[0]?.model_run?' · '+esc(p.records[0].model_run):''}</p>${p.timing?.request_seconds!=null?`<p class="compare-note">${p.timing.cache_hit?'复用模型':'加载模型'} · 处理 ${p.timing.request_seconds.toFixed(2)} 秒（不含进程启动）</p>`:''}${p.images.map(path=>`<img src="${imageURL(path)}" alt="单图检测结果和缺陷热力图" loading="lazy">`).join('')}</div>`).join('');}
  const job=state.job; const running=job?.status==='running'; ['train','predict','download'].forEach(id=>$(id).disabled=running);
- if(job){$('job-panel').classList.remove('hidden');$('job-title').textContent=job.label;const names={running:'正在运行',completed:'已完成',failed:'运行失败，请查看日志'};$('job-state').textContent=names[job.status];$('job-log').textContent=job.log;if(previousJob==='running'&&!running){toast(names[job.status]);if(job.task==='predict')page('detect');}previousJob=job.status;}
+ if(job){$('job-panel').classList.remove('hidden');$('job-title').textContent=job.label;const names={running:'正在运行',completed:'已完成',failed:'运行失败，请查看日志'};$('job-state').textContent=names[job.status]+(job.elapsed_seconds!=null?` · ${job.elapsed_seconds.toFixed(2)} 秒 · ${job.cache_hit?'已复用模型':'首次加载 / 切换模型'}`:'');$('job-log').textContent=job.log;if(previousJob==='running'&&!running){toast(names[job.status]);if(job.task==='predict')page('detect');}previousJob=job.status;}
 }
 function renderSummary(summary) {
  $('summary-status').textContent=`${summary.complete?'完整矩阵已完成':'实验尚未全部完成'} · ${summary.available_runs} / 27 组记录 · ${summary.matched_groups} / 9 组完整配对`;
@@ -87,4 +87,4 @@ $('image-input').onchange=async event=>{const file=event.target.files[0];if(!fil
 $('toggle-log').onclick=()=>{$('job-log').classList.toggle('hidden');$('toggle-log').textContent=$('job-log').classList.contains('hidden')?'展开日志':'收起日志';};
 $('refresh').onclick=refresh;
 if(['overview','detect','experiments','storage'].includes(location.hash.slice(1)))page(location.hash.slice(1));
-refresh();setInterval(refresh,4000);
+async function poll(){await refresh();setTimeout(poll,state?.job?.status==='running'&&state.job.task==='predict'?500:4000);}poll();

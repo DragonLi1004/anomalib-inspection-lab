@@ -23,6 +23,9 @@ TOKEN = secrets.token_urlsafe(32)
 LOCK = threading.Lock()
 JOB = {}
 PROCESS = None
+PREDICTION_THREAD = None
+from prediction_worker import PredictionWorker
+PREDICTOR = PredictionWorker()
 CATEGORIES = {"bottle": (209, 83, 63), "cable": (224, 150, 92), "capsule": (219, 132, 109)}
 
 
@@ -103,7 +106,7 @@ def datasets():
 
 
 def launch(body):
-    global JOB, PROCESS
+    global JOB, PROCESS, PREDICTION_THREAD
     task = body.get("task")
     device = body.get("device", "cuda")
     if device not in ("cpu", "cuda"):
@@ -137,17 +140,43 @@ def launch(body):
     else:
         raise ValueError("Unknown task")
     with LOCK:
-        if PROCESS is not None and PROCESS.poll() is None:
+        if (PROCESS is not None and PROCESS.poll() is None) or (PREDICTION_THREAD is not None and PREDICTION_THREAD.is_alive()):
             raise ValueError("已有任务运行中，请等待完成")
         job_id = time.strftime("%Y%m%d-%H%M%S") + "-" + secrets.token_hex(3)
         directory = OUTPUT / "jobs"
         directory.mkdir(parents=True, exist_ok=True)
         env = os.environ.copy()
         env.update(PYTHONUTF8="1", PYTHONUNBUFFERED="1", TEMP=str(ROOT / ".runtime/temp"), TMP=str(ROOT / ".runtime/temp"), MPLCONFIGDIR=str(ROOT / ".cache/matplotlib"))
-        with (directory / (job_id + ".log")).open("wb") as log:
-            PROCESS = subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, env=env,
-                                       creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
         JOB = {"id": job_id, "label": label, "task": task, "status": "running", "started": time.time()}
+        if task == "predict":
+            PROCESS = None
+            request = {"run": run.name, "image": str(path), "device": device}
+            def detect():
+                started = time.perf_counter()
+                try:
+                    with (directory / (job_id + ".log")).open("w", encoding="utf-8") as log:
+                        result = PREDICTOR.predict(request, log, env)
+                    with LOCK:
+                        JOB.update(status="completed", exit_code=0, cache_hit=result["timing"]["cache_hit"],
+                                   elapsed_seconds=time.perf_counter()-started)
+                except Exception as error:
+                    with (directory / (job_id + ".log")).open("a", encoding="utf-8") as log:
+                        log.write(str(error) + "\n")
+                    with LOCK:
+                        JOB.update(status="failed", exit_code=1)
+            PREDICTION_THREAD = threading.Thread(target=detect, daemon=True)
+            PREDICTION_THREAD.start()
+        else:
+            # Only one model may occupy the 4 GB GPU; release the worker before training.
+            PREDICTOR.close()
+            with (directory / (job_id + ".log")).open("wb") as log:
+                try:
+                    PROCESS = subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, env=env,
+                                               creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
+                except OSError:
+                    JOB.update(status="failed", exit_code=1)
+                    PROCESS = None
+                    raise
         return dict(JOB)
 
 
@@ -175,7 +204,7 @@ class Handler(BaseHTTPRequestHandler):
             if parsed.path == "/api/state":
                 prediction = []
                 for file in sorted(OUTPUT.glob("prediction-*/predictions.json"), reverse=True)[:5]:
-                    prediction.append({"id": file.parent.name, "records": read_json(file, []), "images": images(file.parent)})
+                    prediction.append({"id": file.parent.name, "records": read_json(file, []), "images": images(file.parent), "timing": read_json(file.parent / "timing.json", {})})
                 return self.send({"token": TOKEN, "runs": runs(), "datasets": datasets(), "job": job_state(), "predictions": prediction})
             if parsed.path == "/api/summary":
                 from summarize_experiments import collect_records, summarize
@@ -267,6 +296,7 @@ def main():
     except KeyboardInterrupt:
         pass
     finally:
+        PREDICTOR.close()
         server.server_close()
 
 
