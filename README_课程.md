@@ -1,8 +1,10 @@
 # Inspection Lab：基于 anomalib 的轻量工业缺陷检测实验室
 
+**模型目录与命名：[支持对象、统一模型名称及后续优化路线](course/模型命名与优化路线.md)。** 当前正式支持瓶子、电缆、胶囊，另有榛子演示；检测模型与无损打包、会话复用两项工程优化分别命名。
+
 新增 **连续单图检测加速**：复用本地推理进程与单个模型，9 组模型的四项检测指标保持相同。正式配对计时、首次请求开销与内存代价见 [会话复用优化报告](course/会话复用优化报告.md)。GUI 已自动启用，空闲 2 分钟或开始训练前释放。
 
-课程项目：深度学习与图像处理。最终采用的二次开发目标是 **保持原始四项检测指标不变，减少模型部署包体积**，同时提供本地中文可视化界面。PCA 和显存优化实验保留作为有完整结果的探索对照。
+课程项目：深度学习与图像处理。最终采用的二次开发目标是 **保持原始四项检测指标不变，减少部署包体积并降低连续检测响应时间**，同时提供本地中文可视化界面。PCA 和显存优化实验保留作为有完整结果的探索对照。
 
 **已验证结果：[无损存储优化报告](course/无损存储优化报告.md)。** 9 模型包从 119.03 MiB 降到 29.00 MiB（减少 75.63%）；单模型包减少 8.18%–9.60%。恢复文件逐字节一致，9 组测试的图像/像素 AUROC 与 F1 全部不变。收益属于部署包存储，不是 GPU 显存或推理加速。
 
@@ -53,7 +55,9 @@ powershell -ExecutionPolicy Bypass -File .\run-course.ps1 download-full
 4. `download_mvtec.py`：按类别下载完整数据、校验和续传。
 5. `lossless_package.py`：原始 checkpoint ZIP 数据区去重、无损压缩与逐字节恢复。
 6. `audit_lossless.py` / `report_lossless.py`：模型包体积、恢复完整性、9 组原始检测指标复验及报告。
-7. `exact_search.py` / `optimize_exact.py`：未采用的显存探索；完整测试出现耗时增加，未接入默认检测。
+7. `predict.py` / `prediction_worker.py`：推理会话复用 v1，单模型缓存、空闲释放和训练前释放；`audit_session.py` / `report_session.py` 提供同图计时与质量复验。
+8. `catalog.py`：物体、模型及工程优化的统一显示名称；原始实验 ID 和 CLI 参数保持兼容。
+9. `exact_search.py` / `optimize_exact.py`：未采用的显存探索；完整测试出现耗时增加，未接入默认检测。
 
 所有方法固定 ResNet18 ImageNet 权重、layer2+layer3、224×224 输入、batch=1、coreset=1%、9 个邻居。这里的 baseline 是**相同轻量配置下未修改的上游 PatchCore**，不是上游 WideResNet 默认配置或论文最优成绩。
 

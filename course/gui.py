@@ -15,6 +15,7 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
+from catalog import DATASETS, METHODS, catalog, describe_run
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "course/outputs"
@@ -42,6 +43,7 @@ def runs():
         data = read_json(path)
         if data:
             data.update(id=path.parent.name, dataset=data.get("dataset", "hazelnut_toy"), method=data.get("method", "baseline"))
+            data.update(describe_run(data))
             data.pop("latency_samples_ms", None)
             result.append(data)
     return result
@@ -94,13 +96,13 @@ def job_state():
 
 
 def datasets():
-    result = [{"id": "hazelnut_toy", "label": "Hazelnut · 演示", "expected": 56,
+    result = [{"id": "hazelnut_toy", "label": "榛子 · 小样本演示", "expected": 56,
                "images": sum(1 for p in (ROOT / "course/data/hazelnut_toy").rglob("*") if p.suffix.lower() in (".png", ".jpg", ".jpeg") and "mask" not in p.parts),
                "ready": (ROOT / "course/data/hazelnut_toy/good").is_dir()}]
     for name, expected in CATEGORIES.items():
         root = ROOT / "course/data/MVTecAD" / name
         counts = tuple(len(list((root / split).rglob("*.png"))) for split in ("train", "test", "ground_truth"))
-        result.append({"id": name, "label": name.capitalize(), "images": counts[0] + counts[1],
+        result.append({"id": name, "label": DATASETS[name]["label"] + " · " + name, "images": counts[0] + counts[1],
                        "expected": expected[0] + expected[1], "ready": counts == expected, "counts": counts})
     return result
 
@@ -121,7 +123,7 @@ def launch(body):
         if not 0 <= seed <= 1000000:
             raise ValueError("Seed outside supported range")
         command = [sys.executable, "-u", str(ROOT / "course/experiment.py"), "--dataset", dataset, "--method", method, "--device", device, "--seed", str(seed)]
-        label = f"{dataset} / {method} / seed {seed}"
+        label = f"{DATASETS[dataset]['label']} / {METHODS[method]['name']} / 种子 {seed}"
     elif task == "predict":
         run = local_run(body.get("run"))
         if not (run / "metrics.json").is_file() or not (run / "baseline.ckpt").is_file():
@@ -133,7 +135,7 @@ def launch(body):
         if not path.is_relative_to((OUTPUT / "uploads").resolve()) or not path.is_file():
             raise ValueError("Uploaded image missing")
         command = [sys.executable, "-u", str(ROOT / "course/predict.py"), "--run", run.name, "--image", str(path), "--device", device]
-        label = "单图检测 / " + run.name
+        label = "单图检测 / " + describe_run({**read_json(run / "metrics.json", {}), "id": run.name})["display_name"]
     elif task == "download":
         command = [sys.executable, "-u", str(ROOT / "course/download_mvtec.py")]
         label = "下载 MVTec AD 三个完整类别"
@@ -205,7 +207,7 @@ class Handler(BaseHTTPRequestHandler):
                 prediction = []
                 for file in sorted(OUTPUT.glob("prediction-*/predictions.json"), reverse=True)[:5]:
                     prediction.append({"id": file.parent.name, "records": read_json(file, []), "images": images(file.parent), "timing": read_json(file.parent / "timing.json", {})})
-                return self.send({"token": TOKEN, "runs": runs(), "datasets": datasets(), "job": job_state(), "predictions": prediction})
+                return self.send({"token": TOKEN, "catalog": catalog(), "runs": runs(), "datasets": datasets(), "job": job_state(), "predictions": prediction})
             if parsed.path == "/api/summary":
                 from summarize_experiments import collect_records, summarize
                 device = params.get("device", ["cuda"])[0]
@@ -228,7 +230,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send({"metrics": read_json(path / "metrics.json", {}), "images": images(path), "splits": read_json(path / "split_manifest.json", {})})
             if parsed.path == "/api/export":
                 buf = io.StringIO()
-                fields = ["id", "dataset", "method", "seed", "image_AUROC", "image_F1Score", "pixel_AUROC", "pixel_F1Score", "memory_bank_bytes", "projection_bytes", "search_state_bytes", "latency_median_ms", "split_sha256", "protocol_version", "coreset_sha256"]
+                fields = ["id", "display_name", "model_name", "dataset_label", "method_label", "dataset", "method", "seed", "image_AUROC", "image_F1Score", "pixel_AUROC", "pixel_F1Score", "memory_bank_bytes", "projection_bytes", "search_state_bytes", "latency_median_ms", "split_sha256", "protocol_version", "coreset_sha256"]
                 writer = csv.DictWriter(buf, fields, extrasaction="ignore")
                 writer.writeheader()
                 for row in runs():
