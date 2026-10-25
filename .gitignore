@@ -212,3 +212,7 @@ course/results/*
 !course/results/session_metrics.json
 !course/results/session_metrics.csv
 !course/results/session_comparison.png
+
+!course/results/accuracy_metrics.json
+!course/results/accuracy_metrics.csv
+!course/results/accuracy_comparison.png

@@ -6,6 +6,7 @@ DATASETS = {
     'hazelnut_toy': {'label': '榛子（演示）', 'scope': '小样本演示', 'examples': '颜色异常、裂纹'},
 }
 METHODS = {
+    'peak_mask': {'name': 'PatchCore-R18-384 + PeakMask v1', 'label': '峰值自适应缺陷掩码', 'status': '瓶子 S43 已验证；像素 F1 提升，像素召回率有取舍', 'trainable': False},
     'baseline': {'name': 'PatchCore-R18-384', 'label': '基线模型', 'status': '默认检测方案'},
     'pca192': {'name': 'PatchCore-R18-PCA192', 'label': 'PCA 192 维实验', 'status': '实验方案 · 存在精度损失'},
     'pca96': {'name': 'PatchCore-R18-PCA96', 'label': 'PCA 96 维实验', 'status': '实验方案 · 存在精度损失'},
@@ -31,7 +32,7 @@ def describe_run(row):
     dataset_label = DATASETS.get(dataset, {}).get('label', dataset)
     method_label = info['label'] if info else method
     status = info['status'] if info else '未登记方法'
-    protocol_label = '配对协议 v2' if row.get('protocol_version') == 'paired-coreset-v2' else '早期记录'
+    protocol_label = {'paired-coreset-v2':'配对协议 v2','accuracy-mask-v1':'精度回归 v1'}.get(row.get('protocol_version'),'早期记录')
     run_id = row.get('id', row.get('run_id', ''))
     display_name = f"{dataset_label}｜{model_name}｜种子 {row.get('seed', '未记录')}｜{protocol_label}｜{run_id[-15:]}"
     return {'dataset_label': dataset_label, 'model_name': model_name, 'method_label': method_label,

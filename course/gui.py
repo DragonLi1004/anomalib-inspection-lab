@@ -217,6 +217,12 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send(summarize(collect_records(device)))
                 except ValueError as error:
                     return self.send({"error": str(error)}, status=409)
+            if parsed.path == "/api/accuracy":
+                return self.send(read_json(ROOT / "course/results/accuracy_metrics.json", {"complete": False}))
+            if parsed.path == "/api/accuracy-report":
+                return self.send((ROOT / "course/精度优化对比报告.md").read_bytes(), "text/markdown; charset=utf-8")
+            if parsed.path == "/api/accuracy-plot":
+                return self.send((ROOT / "course/results/accuracy_comparison.png").read_bytes(), "image/png")
             if parsed.path == "/api/storage":
                 report = read_json(ROOT / "course/results/lossless_metrics.json", {"complete": False})
                 if report.get("complete"):

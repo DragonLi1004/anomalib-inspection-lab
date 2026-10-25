@@ -6,7 +6,7 @@ const imageURL = path => '/api/file?path=' + encodeURIComponent(path);
 let state, currentImages = [], imageIndex = 0, selectedRun = '', uploadID = '', pollBusy = false, previousJob = '';
 function toast(message) { $('toast').textContent = message; $('toast').classList.remove('hidden'); clearTimeout(toast.timer); toast.timer = setTimeout(()=>$('toast').classList.add('hidden'), 6000); }
 async function api(path, body) { const r = await fetch(path, body ? {method:'POST',headers:{'Content-Type':'application/json','X-Lab-Token':state.token},body:JSON.stringify(body)} : {}); const data = await r.json(); if(!r.ok) throw new Error(data.error || '请求失败'); return data; }
-function page(name) { document.querySelectorAll('.page').forEach(e=>e.classList.toggle('active',e.id===name)); document.querySelectorAll('.nav').forEach(e=>e.classList.toggle('active',e.dataset.page===name)); $('page-title').textContent = {overview:'实验总览',detect:'图像检测',experiments:'对比实验',storage:'无损部署'}[name]; location.hash=name; }
+function page(name) { document.querySelectorAll('.page').forEach(e=>e.classList.toggle('active',e.id===name)); document.querySelectorAll('.nav').forEach(e=>e.classList.toggle('active',e.dataset.page===name)); $('page-title').textContent = {overview:'实验总览',detect:'图像检测',experiments:'对比实验',storage:'无损部署',accuracy:'精度报告'}[name]; location.hash=name; }
 document.querySelectorAll('[data-page]').forEach(e=>e.onclick=()=>page(e.dataset.page));
 document.querySelectorAll('[data-goto]').forEach(e=>e.onclick=()=>page(e.dataset.goto));
 function options(select, items, label) { const old=select.value; const html=items.map(item=>`<option value="${esc(item.id)}" ${item.ready===false?'disabled':''}>${esc(label(item))}</option>`).join(''); if(select.innerHTML!==html) { select.innerHTML=html; if(items.some(i=>i.id===old)) select.value=old; } }
@@ -17,7 +17,7 @@ function namedRun(id) { const run=state.runs.find(r=>r.id===id); return run?runL
 function renderPredictModels() {
  const dataset=$('predict-dataset').value;
  const rows=state.runs.filter(r=>r.dataset===dataset).sort((a,b)=>{
-  const priority=r=>(r.protocol_version==='paired-coreset-v2'?0:2)+(r.method==='baseline'?0:1);
+  const priority=r=>r.protocol_version==='accuracy-mask-v1'?1:(r.protocol_version==='paired-coreset-v2'?(r.method==='baseline'?0:2):3);
   return priority(a)-priority(b);
  });
  options($('predict-run'),rows,runLabel);
@@ -55,9 +55,9 @@ function render() {
  options($('preview-run'),state.runs,runLabel);
  options($('predict-dataset'),Object.entries(state.catalog.datasets).filter(([id])=>state.runs.some(r=>r.dataset===id)).map(([id,d])=>({id,...d})),d=>`${d.label} · ${d.scope}`);
  renderPredictModels();
- options($('train-method'),Object.entries(state.catalog.methods).map(([id,m])=>({id,...m})),m=>`${m.name} · ${m.status}`);
+ options($('train-method'),Object.entries(state.catalog.methods).filter(([id,m])=>m.trainable!==false).map(([id,m])=>({id,...m})),m=>`${m.name} · ${m.status}`);
  $('optimization-catalog').innerHTML=state.catalog.optimizations.map(o=>`<div><h3>${esc(o.name)}</h3><p>${esc(o.scope)} · ${esc(o.status)}</p><p>${esc(o.benefit)}</p></div>`).join('');
- options($('compare-run'),state.runs.filter(r=>r.method!=='baseline'),runLabel);
+ options($('compare-run'),state.runs.filter(r=>['pca96','pca192'].includes(r.method)),runLabel);
  options($('train-dataset'),state.datasets,d=>`${d.label} · ${d.images} 张${d.ready?'':'（下载中 / 未下载）'}`);
  $('datasets').innerHTML=state.datasets.map(d=>`<div class="dataset-row"><div class="dataset-top"><span>${esc(d.label)}</span><small>${d.images} / ${d.expected} · ${d.ready?'可用':'待补齐'}</small></div><div class="progress"><i style="width:${Math.min(100,d.images/d.expected*100)}%"></i></div></div>`).join('');
  $('runs-table').innerHTML=state.runs.slice(0,12).map(r=>`<tr><td>${esc(datasetLabel(r.dataset))}<small>${esc(r.id.slice(-15))} · seed ${r.seed}</small></td><td><span class="method-chip">${esc(methodLabel(r.method))}</span></td><td>${r.split_counts.train} / ${r.split_counts.val} / ${r.split_counts.test}</td><td>${fmt(r.metrics[0].image_AUROC)}</td><td>${fmt(r.metrics[0].image_F1Score)}</td><td>${fmt(r.metrics[0].pixel_AUROC)}</td><td>${size(r.memory_bank_bytes)}</td></tr>`).join('')||'<tr><td colspan="7">暂无实验，先运行原始基线。</td></tr>';
@@ -74,6 +74,24 @@ function renderSummary(summary) {
   const s=r.statistics, change=r.paired_changes.image_AUROC_delta_pp.mean;
   return `<tr><td>${esc(datasetLabel(r.dataset))}<small>${esc(methodLabel(r.method))}</small></td><td>${r.n}</td><td>${stat(s.image_AUROC)}</td><td>${stat(s.image_F1Score)}</td><td>${stat(s.pixel_AUROC)}</td><td>${r.method==='baseline'?'基线':r.paired_changes.search_state_reduction_percent.mean.toFixed(2)+'%'}</td><td class="delta ${change<0?'bad':''}">${r.method==='baseline'?'—':(change>=0?'+':'')+change.toFixed(3)+' pp'}</td></tr>`;
  }).join('')||'<tr><td colspan="7">尚无完整配对：同类别、同种子需要 baseline、pca96 和 pca192 三组结果。</td></tr>';
+}
+function renderAccuracy(report) {
+ if(!report.complete){$('accuracy-status').textContent='精度评估尚未完成';return;}
+ const r=report.runs.find(row=>row.alpha>0);
+ if(!r){$('accuracy-status').textContent='没有满足验证规则的优化候选';return;}
+ $('accuracy-status').textContent=`${report.test_evaluations} 次测试图像评估 · ${report.evaluated_models} 组模型 · 参数在测试前冻结 · ${report.enabled_models} 组启用优化`;
+ $('accuracy-before').textContent=fmt(r.before.pixel_F1Score);
+ $('accuracy-after').textContent=fmt(r.after.pixel_F1Score);
+ $('accuracy-gain').textContent='+'+r.delta_pp.pixel_F1Score.toFixed(3)+' pp';
+ $('accuracy-passed').textContent=report.runs.filter(x=>x.all_metrics_non_decreasing).length+' / '+report.evaluated_models;
+ const pr=r.pixel_precision_recall;
+ $('accuracy-tradeoff').textContent=`像素精确率 ${(pr.before.precision*100).toFixed(2)}% → ${(pr.after.precision*100).toFixed(2)}%；像素召回率 ${(pr.before.recall*100).toFixed(2)}% → ${(pr.after.recall*100).toFixed(2)}%。误检减少，同时部分缺陷边缘被收紧。图像级判定不变。`;
+ const labels={image_AUROC:'图像 AUROC',image_F1Score:'图像 F1',pixel_AUROC:'像素 AUROC',pixel_F1Score:'像素 F1'};
+ $('accuracy-main-table').innerHTML=Object.keys(labels).map(k=>`<tr><td>${labels[k]}</td><td>${r.before[k].toFixed(6)}</td><td>${r.after[k].toFixed(6)}</td><td>${r.delta_pp[k].toFixed(6)}</td></tr>`).join('');
+ $('accuracy-all-table').innerHTML=report.runs.map(x=>`<tr><td>${esc(datasetLabel(x.dataset))} · S${x.seed}</td><td>${x.alpha.toFixed(2)}</td><td>${x.before.pixel_F1Score.toFixed(6)}</td><td>${x.after.pixel_F1Score.toFixed(6)}</td><td>${x.delta_pp.pixel_F1Score.toFixed(6)}</td><td>全部不变</td></tr>`).join('');
+ $('accuracy-means').textContent='三个种子的类别均值提升：'+report.category_summary.map(x=>`${datasetLabel(x.dataset)} ${x.pixel_f1_delta_pp.toFixed(3)} pp`).join('；')+'。';
+ const t=r.timing.median_ms,mem=r.timing.peak_allocated_bytes;
+ $('accuracy-cost').textContent=`模型前向 + 后处理中位耗时 ${t.baseline.toFixed(3)} → ${t.peak.toFixed(3)} ms；此推理段峰值张量分配 ${(mem.baseline/1048576).toFixed(2)} → ${(mem.peak/1048576).toFixed(2)} MiB（非总显存）。不含启动、读图和绘图；权重文件保持不变。`;
 }
 let storageReport;
 function renderRestoreCommand() {
@@ -98,7 +116,7 @@ function renderStorage(report) {
  renderRestoreCommand();
 }
 $('restore-run').onchange=renderRestoreCommand;
-async function refresh(){if(pollBusy)return;pollBusy=true;try{state=await api('/api/state');$('connection-error').classList.add('hidden');render();try{renderSummary(await api('/api/summary'));}catch(error){$('summary-status').textContent='汇总不可用：'+error.message;$('summary-table').innerHTML='';}try{renderStorage(await api('/api/storage'));}catch(error){$('storage-status').textContent='存储报告不可用：'+error.message;}}catch(e){$('connection-error').classList.remove('hidden');}finally{pollBusy=false;}}
+async function refresh(){if(pollBusy)return;pollBusy=true;try{state=await api('/api/state');$('connection-error').classList.add('hidden');render();try{renderSummary(await api('/api/summary'));}catch(error){$('summary-status').textContent='汇总不可用：'+error.message;$('summary-table').innerHTML='';}try{renderAccuracy(await api('/api/accuracy'));}catch(error){$('accuracy-status').textContent='精度报告不可用：'+error.message;}try{renderStorage(await api('/api/storage'));}catch(error){$('storage-status').textContent='存储报告不可用：'+error.message;}}catch(e){$('connection-error').classList.remove('hidden');}finally{pollBusy=false;}}
 async function submit(body){try{await api('/api/job',body);toast('任务已启动，日志显示在页面下方');await refresh();$('job-panel').scrollIntoView({behavior:'smooth',block:'nearest'});}catch(e){toast(e.message);}}
 $('train').onclick=()=>submit({task:'train',dataset:$('train-dataset').value,method:$('train-method').value,seed:Number($('train-seed').value),device:$('train-device').value});
 $('download').onclick=()=>submit({task:'download'});
@@ -106,5 +124,5 @@ $('predict').onclick=()=>{if(!uploadID)return toast('请先选择一张图片');
 $('image-input').onchange=async event=>{const file=event.target.files[0];if(!file)return;uploadID='';if(file.size>10000000)return toast('图片请小于 10 MB');try{const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file);});const result=await api('/api/upload',{data:data.split(',')[1]});uploadID=result.id;$('upload-preview').src=data;$('upload-preview').classList.remove('hidden');$('upload-label').classList.add('hidden');}catch(e){toast(e.message);}};
 $('toggle-log').onclick=()=>{$('job-log').classList.toggle('hidden');$('toggle-log').textContent=$('job-log').classList.contains('hidden')?'展开日志':'收起日志';};
 $('refresh').onclick=refresh;
-if(['overview','detect','experiments','storage'].includes(location.hash.slice(1)))page(location.hash.slice(1));
+if(['overview','detect','experiments','storage','accuracy'].includes(location.hash.slice(1)))page(location.hash.slice(1));
 async function poll(){await refresh();setTimeout(poll,state?.job?.status==='running'&&state.job.task==='predict'?500:4000);}poll();

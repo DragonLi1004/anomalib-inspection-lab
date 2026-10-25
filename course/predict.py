@@ -64,6 +64,9 @@ class PredictionSession:
             metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
             cls = CompactPatchcore if metadata.get("method", "baseline").startswith("pca") else Patchcore
             self.model = cls.load_from_checkpoint(checkpoint, map_location="cpu", weights_only=False)
+            if metadata.get("method") == "peak_mask":
+                from peak_refinement import install_peak
+                install_peak(self.model, float(metadata["peak_alpha"]))
             self.key = key
         return self.model, run, hit
 
