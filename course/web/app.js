@@ -17,7 +17,7 @@ function namedRun(id) { const run=state.runs.find(r=>r.id===id); return run?runL
 function renderPredictModels() {
  const dataset=$('predict-dataset').value;
  const rows=state.runs.filter(r=>r.dataset===dataset).sort((a,b)=>{
-  const priority=r=>r.protocol_version==='accuracy-mask-v1'?1:(r.protocol_version==='paired-coreset-v2'?(r.method==='baseline'?0:2):3);
+  const priority=r=>['accuracy-mask-v1','fine-mask-v1'].includes(r.protocol_version)?1:(r.protocol_version==='paired-coreset-v2'?(r.method==='baseline'?0:2):3);
   return priority(a)-priority(b);
  });
  options($('predict-run'),rows,runLabel);
@@ -126,3 +126,12 @@ $('toggle-log').onclick=()=>{$('job-log').classList.toggle('hidden');$('toggle-l
 $('refresh').onclick=refresh;
 if(['overview','detect','experiments','storage','accuracy'].includes(location.hash.slice(1)))page(location.hash.slice(1));
 async function poll(){await refresh();setTimeout(poll,state?.job?.status==='running'&&state.job.task==='predict'?500:4000);}poll();
+
+function renderFine(r){
+ if(!r.complete)return;
+ $('fine-panel').classList.remove('hidden');
+ $('fine-summary').textContent=`平均像素 F1 ${fmt(r.means.before.pixel_F1Score)} → ${fmt(r.means.after.pixel_F1Score)}，提升 ${r.mean_pixel_f1_gain_pp.toFixed(3)} 个百分点；${r.test_evaluations} 次测试评估（含重复图像）。`;
+ const pair=(p,k)=>`${(100*p.before[k]).toFixed(2)}% → ${(100*p.after[k]).toFixed(2)}%`;
+ $('fine-table').innerHTML=r.runs.map(x=>`<tr><td>S${x.seed}</td><td>${fmt(x.before.pixel_F1Score)}</td><td>${fmt(x.after.pixel_F1Score)}</td><td>+${x.delta_pp.pixel_F1Score.toFixed(3)}</td><td>${pair(x.pixel_rates,'pixel_recall')}</td><td>${pair(x.pixel_rates,'pixel_precision')}</td></tr>`).join('');
+}
+api('/api/fine-accuracy').then(renderFine).catch(()=>{});

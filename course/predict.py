@@ -55,8 +55,15 @@ class PredictionSession:
         metadata_path = (run / "metrics.json").resolve()
         if not checkpoint.is_relative_to(outputs) or not metadata_path.is_relative_to(outputs):
             raise ValueError("Checkpoint must belong to local outputs")
-        # Reload after a checkpoint or its method metadata changes.
-        key = (str(checkpoint), device, *((p.stat().st_size, p.stat().st_mtime_ns) for p in (checkpoint, metadata_path)))
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        dependencies = [checkpoint, metadata_path]
+        auxiliary_path = (run / "auxiliary.ckpt").resolve()
+        if metadata.get("method") == "fine_guard":
+            if not auxiliary_path.is_relative_to(run):
+                raise ValueError("Auxiliary checkpoint must belong to model directory")
+            dependencies.append(auxiliary_path)
+        # Reload after either branch or its method metadata changes.
+        key = (str(checkpoint), device, *((p.stat().st_size, p.stat().st_mtime_ns) for p in dependencies))
         hit = key == self.key and self.model is not None
         if not hit:
             self.clear()
@@ -67,6 +74,13 @@ class PredictionSession:
             if metadata.get("method") == "peak_mask":
                 from peak_refinement import install_peak
                 install_peak(self.model, float(metadata["peak_alpha"]))
+            if metadata.get("method") == "fine_guard":
+                from fine_guard import install_fine_guard
+                for path, field in [(checkpoint, "source_checkpoint_sha256"), (auxiliary_path, "auxiliary_checkpoint_sha256")]:
+                    if hashlib.sha256(path.read_bytes()).hexdigest() != metadata[field]:
+                        raise ValueError("FineGuard checkpoint integrity mismatch")
+                auxiliary = Patchcore.load_from_checkpoint(auxiliary_path, map_location="cpu", weights_only=False)
+                install_fine_guard(self.model, auxiliary, float(metadata["fine_threshold"]))
             self.key = key
         return self.model, run, hit
 

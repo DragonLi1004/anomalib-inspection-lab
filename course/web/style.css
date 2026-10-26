@@ -4,3 +4,6 @@
 @media(max-width:560px){.breadcrumb{font-size:10px;white-space:nowrap}.breadcrumb span{padding:0 5px}.header-right{gap:5px}.local-badge{font-size:8px;letter-spacing:0}header{height:62px}.sidebar{width:52px;padding:20px 5px}.nav{padding:10px}.brand-icon{font-size:29px}main{margin-left:52px}.metrics-grid{gap:8px}.metric{padding:11px}.preview-panel .panel-title{flex-direction:column}.preview-panel .panel-title select{width:100%}.hero-image{min-height:100px}}
 
 .restore-command{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7f3;border:1px solid #e6ecea;border-radius:6px;padding:16px;font:12px/1.8 Consolas,monospace}#package-location{overflow-wrap:anywhere}#storage .metric strong{font-size:26px}#storage .notice{color:#087e69;background:#e8f4ee;border-color:#c9e3d5}
+
+/* Keep the report start visible when the asynchronous summary appears above it. */
+#accuracy { overflow-anchor: none; }

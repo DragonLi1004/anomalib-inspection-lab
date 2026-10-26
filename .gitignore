@@ -216,3 +216,7 @@ course/results/*
 !course/results/accuracy_metrics.json
 !course/results/accuracy_metrics.csv
 !course/results/accuracy_comparison.png
+
+!course/results/fine_metrics.json
+!course/results/fine_metrics.csv
+!course/results/fine_comparison.png
