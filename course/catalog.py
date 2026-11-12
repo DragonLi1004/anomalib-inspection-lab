@@ -6,6 +6,7 @@ DATASETS = {
     'hazelnut_toy': {'label': '榛子（演示）', 'scope': '小样本演示', 'examples': '颜色异常、裂纹'},
 }
 METHODS = {
+    'fine_lite': {'name': 'PatchCore-R18 + FineGuard Lite v1', 'label': '共享骨干轻量补检', 'status': '胶囊双分辨率定位，共享浅层权重并按需补检', 'trainable': False},
     'fine_guard': {'name': 'PatchCore-R18-384 + FineGuard v1', 'label': '高分辨率细节补检', 'status': '胶囊三种子精度回归；保留原区域并补检，增加推理开销', 'trainable': False},
     'peak_mask': {'name': 'PatchCore-R18-384 + PeakMask v1', 'label': '峰值自适应缺陷掩码', 'status': '瓶子 S43 已验证；像素 F1 提升，像素召回率有取舍', 'trainable': False},
     'baseline': {'name': 'PatchCore-R18-384', 'label': '基线模型', 'status': '默认检测方案'},

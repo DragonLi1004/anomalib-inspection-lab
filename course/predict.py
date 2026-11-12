@@ -70,7 +70,13 @@ class PredictionSession:
             from compact_patchcore import CompactPatchcore
             metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
             cls = CompactPatchcore if metadata.get("method", "baseline").startswith("pca") else Patchcore
-            self.model = cls.load_from_checkpoint(checkpoint, map_location="cpu", weights_only=False)
+            if metadata.get("method") == "fine_lite":
+                from fine_guard_lite import load_lite
+                if hashlib.sha256(checkpoint.read_bytes()).hexdigest() != metadata["lite_sha256"]:
+                    raise ValueError("FineGuard Lite checkpoint integrity mismatch")
+                self.model = load_lite(checkpoint)
+            else:
+                self.model = cls.load_from_checkpoint(checkpoint, map_location="cpu", weights_only=False)
             if metadata.get("method") == "peak_mask":
                 from peak_refinement import install_peak
                 install_peak(self.model, float(metadata["peak_alpha"]))
